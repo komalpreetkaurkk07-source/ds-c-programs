@@ -1,0 +1,2618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Structures in C - BCA-II (3rd Sem)</title>
+<style>
+body{font-family:Arial,sans-serif;background:#fff;color:#000;line-height:1.5;margin:18px}
+h1,h2,h3{color:#000}
+header{text-align:center;border-bottom:1px solid #000;padding-bottom:12px}
+.details{border:2px solid #000;padding:12px;max-width:620px;margin:18px auto}
+.details p{margin:5px 0}
+nav{border:1px solid #000;padding:12px;margin:20px 0}
+nav ul{columns:2}
+a{color:#000}
+.topic{border-top:2px solid #000;padding-top:12px;margin-top:30px}
+.question{margin:18px 0;padding:10px;border:1px solid #aaa}
+summary{cursor:pointer;font-weight:bold;padding:5px}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f5f5f5;border:1px solid #ddd;padding:12px;font-size:13px}
+code{font-family:Consolas,monospace}
+.toplink{text-align:right}
+.note{border:1px solid #777;padding:10px;margin:15px 0}
+@media(max-width:600px){body{margin:10px}nav ul{columns:1}pre{font-size:12px}}
+</style>
+</head>
+<body id="top">
+<header><h1>DATA STRUCTURES USING C</h1><h2>Practical Programs and Solutions</h2></header>
+<div class="details">
+<p><b>Submitted by:</b> Komalpreet Kaur</p>
+<p><b>Submitted to:</b> Mr. Chetan Sir</p>
+<p><b>Class:</b> BCA-II (3rd Sem)</p>
+<p><b>Section:</b> A</p>
+<p><b>Roll No.:</b> 4269/25</p>
+</div>
+
+<nav><h2>INDEX / TOPICS</h2><ul><li><a href="#topic-1">Single Dimensional Arrays (20 programs)</a></li>
+<li><a href="#topic-2">Strings (29 programs)</a></li>
+<li><a href="#topic-3">Recursion (8 programs)</a></li>
+<li><a href="#topic-4">Multi-Dimensional Arrays (7 programs)</a></li>
+<li><a href="#topic-5">Stacks (13 programs)</a></li>
+<li><a href="#topic-6">Queues (20 programs)</a></li>
+<li><a href="#topic-7">Linked List (11 programs)</a></li>
+<li><a href="#topic-8">Trees (20 programs)</a></li>
+<li><a href="#topic-9">Graphs (6 programs)</a></li>
+<li><a href="#topic-10">Searching Algorithms (10 programs)</a></li>
+<li><a href="#topic-11">Sorting Algorithms (20 programs)</a></li></ul></nav>
+<section class="topic" id="topic-1"><h2>1. Single Dimensional Arrays</h2>
+        <section class="question" id="t1-q1">
+          <h3>1. Read and display an integer array</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[100], n, i;
+    printf(&quot;Enter number of elements: &quot;); scanf(&quot;%d&quot;, &amp;n);
+    printf(&quot;Enter elements: &quot;);
+    for(i=0;i&lt;n;i++) scanf(&quot;%d&quot;,&amp;a[i]);
+    printf(&quot;Array: &quot;);
+    for(i=0;i&lt;n;i++) printf(&quot;%d &quot;,a[i]);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t1-q2">
+          <h3>2. Display array in reverse order</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[100],n,i; scanf(&quot;%d&quot;,&amp;n);
+    for(i=0;i&lt;n;i++) scanf(&quot;%d&quot;,&amp;a[i]);
+    for(i=n-1;i&gt;=0;i--) printf(&quot;%d &quot;,a[i]);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t1-q3">
+          <h3>3. Copy one array into another</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[100],b[100],n,i; scanf(&quot;%d&quot;,&amp;n);
+    for(i=0;i&lt;n;i++) scanf(&quot;%d&quot;,&amp;a[i]);
+    for(i=0;i&lt;n;i++) b[i]=a[i];
+    for(i=0;i&lt;n;i++) printf(&quot;%d &quot;,b[i]);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t1-q4">
+          <h3>4. Copy an array in reverse order</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[100],b[100],n,i; scanf(&quot;%d&quot;,&amp;n);
+    for(i=0;i&lt;n;i++) scanf(&quot;%d&quot;,&amp;a[i]);
+    for(i=0;i&lt;n;i++) b[i]=a[n-1-i];
+    for(i=0;i&lt;n;i++) printf(&quot;%d &quot;,b[i]);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t1-q5">
+          <h3>5. Print even and positive elements</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[100],n,i; scanf(&quot;%d&quot;,&amp;n);
+    for(i=0;i&lt;n;i++) scanf(&quot;%d&quot;,&amp;a[i]);
+    for(i=0;i&lt;n;i++) if(a[i]&gt;0 &amp;&amp; a[i]%2==0) printf(&quot;%d &quot;,a[i]);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t1-q6">
+          <h3>6. Print square of every array element</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[100],n,i; scanf(&quot;%d&quot;,&amp;n);
+    for(i=0;i&lt;n;i++) scanf(&quot;%d&quot;,&amp;a[i]);
+    for(i=0;i&lt;n;i++) printf(&quot;%d &quot;,a[i]*a[i]);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t1-q7">
+          <h3>7. Find maximum and minimum element</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[100],n,i,mn,mx; scanf(&quot;%d&quot;,&amp;n);
+    for(i=0;i&lt;n;i++) scanf(&quot;%d&quot;,&amp;a[i]);
+    mn=mx=a[0];
+    for(i=1;i&lt;n;i++){if(a[i]&lt;mn)mn=a[i]; if(a[i]&gt;mx)mx=a[i];}
+    printf(&quot;Minimum = %d\nMaximum = %d&quot;,mn,mx);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t1-q8">
+          <h3>8. Find the kth smallest element</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[100],n,k,i,j,t; scanf(&quot;%d&quot;,&amp;n);
+    for(i=0;i&lt;n;i++) scanf(&quot;%d&quot;,&amp;a[i]);
+    printf(&quot;Enter k: &quot;); scanf(&quot;%d&quot;,&amp;k);
+    for(i=0;i&lt;n-1;i++) for(j=0;j&lt;n-1-i;j++) if(a[j]&gt;a[j+1]){t=a[j];a[j]=a[j+1];a[j+1]=t;}
+    if(k&gt;=1 &amp;&amp; k&lt;=n) printf(&quot;%d&quot;,a[k-1]); else printf(&quot;Invalid k&quot;);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t1-q9">
+          <h3>9. Find sum of array elements</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[100],n,i,sum=0; scanf(&quot;%d&quot;,&amp;n);
+    for(i=0;i&lt;n;i++){scanf(&quot;%d&quot;,&amp;a[i]);sum+=a[i];}
+    printf(&quot;Sum = %d&quot;,sum);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t1-q10">
+          <h3>10. Find duplicate elements</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[100],n,i,j; scanf(&quot;%d&quot;,&amp;n);
+    for(i=0;i&lt;n;i++) scanf(&quot;%d&quot;,&amp;a[i]);
+    for(i=0;i&lt;n;i++){for(j=i+1;j&lt;n;j++) if(a[i]==a[j]){printf(&quot;%d &quot;,a[i]);break;}}
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t1-q11">
+          <h3>11. Replace repeated occurrences by zero</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[100],n,i,j; scanf(&quot;%d&quot;,&amp;n);
+    for(i=0;i&lt;n;i++) scanf(&quot;%d&quot;,&amp;a[i]);
+    for(i=0;i&lt;n;i++) for(j=0;j&lt;i;j++) if(a[i]==a[j]){a[i]=0;break;}
+    for(i=0;i&lt;n;i++) printf(&quot;%d &quot;,a[i]);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t1-q12">
+          <h3>12. Count distinct values that are repeated</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[100],n,i,j,count=0,seen; scanf(&quot;%d&quot;,&amp;n);
+    for(i=0;i&lt;n;i++) scanf(&quot;%d&quot;,&amp;a[i]);
+    for(i=0;i&lt;n;i++){seen=0;for(j=0;j&lt;i;j++)if(a[i]==a[j])seen=1;
+      if(!seen)for(j=i+1;j&lt;n;j++)if(a[i]==a[j]){count++;break;}}
+    printf(&quot;Repeated distinct values = %d&quot;,count);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t1-q13">
+          <h3>13. Print all non-empty subsets of an array</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[20],n,i,j,mask; scanf(&quot;%d&quot;,&amp;n);
+    if(n&gt;20){printf(&quot;Use at most 20 elements&quot;);return 0;}
+    for(i=0;i&lt;n;i++) scanf(&quot;%d&quot;,&amp;a[i]);
+    for(mask=1;mask&lt;(1&lt;&lt;n);mask++){printf(&quot;{ &quot;);for(j=0;j&lt;n;j++)if(mask&amp;(1&lt;&lt;j))printf(&quot;%d &quot;,a[j]);printf(&quot;}\n&quot;);}
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t1-q14">
+          <h3>14. Print all pairs of array elements</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[100],n,i,j; scanf(&quot;%d&quot;,&amp;n);
+    for(i=0;i&lt;n;i++) scanf(&quot;%d&quot;,&amp;a[i]);
+    for(i=0;i&lt;n;i++)for(j=i+1;j&lt;n;j++)printf(&quot;(%d,%d)\n&quot;,a[i],a[j]);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t1-q15">
+          <h3>15. Check whether array values form a palindrome</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[100],n,i,ok=1; scanf(&quot;%d&quot;,&amp;n);
+    for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;a[i]);
+    for(i=0;i&lt;n/2;i++)if(a[i]!=a[n-1-i])ok=0;
+    printf(ok?&quot;Palindrome&quot;:&quot;Not palindrome&quot;);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t1-q16">
+          <h3>16. Compare two arrays</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[100],b[100],n,m,i,ok=1; scanf(&quot;%d&quot;,&amp;n);
+    for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;a[i]); scanf(&quot;%d&quot;,&amp;m);
+    for(i=0;i&lt;m;i++)scanf(&quot;%d&quot;,&amp;b[i]);
+    if(n!=m)ok=0; else for(i=0;i&lt;n;i++)if(a[i]!=b[i])ok=0;
+    printf(ok?&quot;Equal arrays&quot;:&quot;Different arrays&quot;);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t1-q17">
+          <h3>17. Merge two sorted arrays</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[100],b[100],c[200],n,m,i=0,j=0,k=0; scanf(&quot;%d&quot;,&amp;n);
+    for(k=0;k&lt;n;k++)scanf(&quot;%d&quot;,&amp;a[k]); scanf(&quot;%d&quot;,&amp;m);
+    for(k=0;k&lt;m;k++)scanf(&quot;%d&quot;,&amp;b[k]); k=0;
+    while(i&lt;n&amp;&amp;j&lt;m)c[k++]=(a[i]&lt;b[j])?a[i++]:b[j++];
+    while(i&lt;n)c[k++]=a[i++]; while(j&lt;m)c[k++]=b[j++];
+    for(i=0;i&lt;k;i++)printf(&quot;%d &quot;,c[i]);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t1-q18">
+          <h3>18. Find local minima in an array</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[100],n,i,found=0; scanf(&quot;%d&quot;,&amp;n);
+    for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;a[i]);
+    if(n==1){printf(&quot;%d&quot;,a[0]);found=1;}
+    for(i=1;i&lt;n-1;i++)if(a[i]&lt;=a[i-1]&amp;&amp;a[i]&lt;=a[i+1]){printf(&quot;%d &quot;,a[i]);found=1;}
+    if(!found)printf(&quot;No interior local minimum&quot;);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t1-q19">
+          <h3>19. Find local maxima in an array</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[100],n,i,found=0; scanf(&quot;%d&quot;,&amp;n);
+    for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;a[i]);
+    if(n==1){printf(&quot;%d&quot;,a[0]);found=1;}
+    for(i=1;i&lt;n-1;i++)if(a[i]&gt;=a[i-1]&amp;&amp;a[i]&gt;=a[i+1]){printf(&quot;%d &quot;,a[i]);found=1;}
+    if(!found)printf(&quot;No interior local maximum&quot;);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t1-q20">
+          <h3>20. Calculate trapped rain water</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int h[100],n,i,l=0,r,mxL=0,mxR=0,water=0; scanf(&quot;%d&quot;,&amp;n);
+    for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;h[i]); r=n-1;
+    while(l&lt;r){if(h[l]&lt;h[r]){if(h[l]&gt;=mxL)mxL=h[l];else water+=mxL-h[l];l++;}
+      else{if(h[r]&gt;=mxR)mxR=h[r];else water+=mxR-h[r];r--;}}
+    printf(&quot;Trapped water = %d&quot;,water);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section><p class="toplink"><a href="#top">Back to top ↑</a></p></section><section class="topic" id="topic-2"><h2>2. Strings</h2>
+        <section class="question" id="t2-q1">
+          <h3>1. Convert a string to uppercase</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char *unused; /* Standard string functions are available through string.h */
+    char s[200]; int i; fgets(s,200,stdin); for(i=0;s[i];i++) if(s[i]&gt;=&#x27;a&#x27;&amp;&amp;s[i]&lt;=&#x27;z&#x27;)s[i]-=32; printf(&quot;%s&quot;,s);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t2-q2">
+          <h3>2. Convert a string to lowercase</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char *unused; /* Standard string functions are available through string.h */
+    char s[200]; int i; fgets(s,200,stdin); for(i=0;s[i];i++) if(s[i]&gt;=&#x27;A&#x27;&amp;&amp;s[i]&lt;=&#x27;Z&#x27;)s[i]+=32; printf(&quot;%s&quot;,s);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t2-q3">
+          <h3>3. Convert a sentence to sentence case</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char *unused; /* Standard string functions are available through string.h */
+    char s[200]; int i,start=1; fgets(s,200,stdin); for(i=0;s[i];i++){if(s[i]==&#x27;.&#x27;||s[i]==&#x27;?&#x27;||s[i]==&#x27;!&#x27;)start=1; else if(s[i]!=&#x27; &#x27;&amp;&amp;s[i]!=&#x27;\n&#x27;){if(start&amp;&amp;s[i]&gt;=&#x27;a&#x27;&amp;&amp;s[i]&lt;=&#x27;z&#x27;)s[i]-=32;else if(!start&amp;&amp;s[i]&gt;=&#x27;A&#x27;&amp;&amp;s[i]&lt;=&#x27;Z&#x27;)s[i]+=32;start=0;}} printf(&quot;%s&quot;,s);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t2-q4">
+          <h3>4. Convert a string to title case</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char *unused; /* Standard string functions are available through string.h */
+    char s[200]; int i,cap=1; fgets(s,200,stdin); for(i=0;s[i];i++){if(s[i]==&#x27; &#x27;)cap=1;else if(cap){if(s[i]&gt;=&#x27;a&#x27;&amp;&amp;s[i]&lt;=&#x27;z&#x27;)s[i]-=32;cap=0;}else if(s[i]&gt;=&#x27;A&#x27;&amp;&amp;s[i]&lt;=&#x27;Z&#x27;)s[i]+=32;} printf(&quot;%s&quot;,s);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t2-q5">
+          <h3>5. Toggle the case of each character</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char *unused; /* Standard string functions are available through string.h */
+    char s[200]; int i; fgets(s,200,stdin); for(i=0;s[i];i++){if(s[i]&gt;=&#x27;a&#x27;&amp;&amp;s[i]&lt;=&#x27;z&#x27;)s[i]-=32;else if(s[i]&gt;=&#x27;A&#x27;&amp;&amp;s[i]&lt;=&#x27;Z&#x27;)s[i]+=32;} printf(&quot;%s&quot;,s);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t2-q6">
+          <h3>6. Find length of a string without strlen</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char *unused; /* Standard string functions are available through string.h */
+    char s[200]; int n=0; fgets(s,200,stdin); while(s[n]&amp;&amp;s[n]!=&#x27;\n&#x27;)n++; printf(&quot;Length = %d&quot;,n);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t2-q7">
+          <h3>7. Compare two strings without strcmp</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char *unused; /* Standard string functions are available through string.h */
+    char a[200],b[200]; int i=0; fgets(a,200,stdin); fgets(b,200,stdin); while(a[i]&amp;&amp;b[i]&amp;&amp;a[i]==b[i])i++; if(a[i]==&#x27;\n&#x27;)a[i]=0;if(b[i]==&#x27;\n&#x27;)b[i]=0; printf(a[i]==b[i]?&quot;Equal&quot;:&quot;Not equal&quot;);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t2-q8">
+          <h3>8. Concatenate two strings without strcat</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char *unused; /* Standard string functions are available through string.h */
+    char a[200],b[100]; int i=0,j=0; fgets(a,200,stdin);fgets(b,100,stdin);while(a[i]&amp;&amp;a[i]!=&#x27;\n&#x27;)i++;while(b[j]&amp;&amp;b[j]!=&#x27;\n&#x27;)a[i++]=b[j++];a[i]=0;printf(&quot;%s&quot;,a);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t2-q9">
+          <h3>9. Copy one string into another</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char *unused; /* Standard string functions are available through string.h */
+    char a[200],b[200]; int i=0; fgets(a,200,stdin);while(a[i]){b[i]=a[i];i++;}b[i]=0;printf(&quot;%s&quot;,b);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t2-q10">
+          <h3>10. Display character at a given index</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char *unused; /* Standard string functions are available through string.h */
+    char s[200]; int k; fgets(s,200,stdin);scanf(&quot;%d&quot;,&amp;k);if(k&gt;=0&amp;&amp;k&lt;(int)strlen(s)&amp;&amp;s[k]!=&#x27;\n&#x27;)printf(&quot;%c&quot;,s[k]);else printf(&quot;Invalid index&quot;);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t2-q11">
+          <h3>11. Check whether a string is palindrome</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char *unused; /* Standard string functions are available through string.h */
+    char s[200]; int i,n=0,ok=1;fgets(s,200,stdin);while(s[n]&amp;&amp;s[n]!=&#x27;\n&#x27;)n++;for(i=0;i&lt;n/2;i++)if(s[i]!=s[n-1-i])ok=0;printf(ok?&quot;Palindrome&quot;:&quot;Not palindrome&quot;);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t2-q12">
+          <h3>12. Print each character on a separate line</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char *unused; /* Standard string functions are available through string.h */
+    char s[200];int i;fgets(s,200,stdin);for(i=0;s[i]&amp;&amp;s[i]!=&#x27;\n&#x27;;i++)printf(&quot;%c\n&quot;,s[i]);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t2-q13">
+          <h3>13. Copy a string in reverse order</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char *unused; /* Standard string functions are available through string.h */
+    char s[200];int i,n=0;fgets(s,200,stdin);while(s[n]&amp;&amp;s[n]!=&#x27;\n&#x27;)n++;for(i=n-1;i&gt;=0;i--)putchar(s[i]);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t2-q14">
+          <h3>14. Print ASCII difference of consecutive characters</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char *unused; /* Standard string functions are available through string.h */
+    char s[200];int i;fgets(s,200,stdin);for(i=0;s[i]&amp;&amp;s[i+1]&amp;&amp;s[i+1]!=&#x27;\n&#x27;;i++)printf(&quot;%d &quot;,(int)s[i+1]-(int)s[i]);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t2-q15">
+          <h3>15. Search for a character in a string</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char *unused; /* Standard string functions are available through string.h */
+    char s[200],ch;int i,found=0;fgets(s,200,stdin);scanf(&quot; %c&quot;,&amp;ch);for(i=0;s[i]&amp;&amp;s[i]!=&#x27;\n&#x27;;i++)if(s[i]==ch){printf(&quot;Found at index %d\n&quot;,i);found=1;}if(!found)printf(&quot;Not found&quot;);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t2-q16">
+          <h3>16. Find first index of a character</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char *unused; /* Standard string functions are available through string.h */
+    char s[200],ch;int i;fgets(s,200,stdin);scanf(&quot; %c&quot;,&amp;ch);for(i=0;s[i]&amp;&amp;s[i]!=&#x27;\n&#x27;&amp;&amp;s[i]!=ch;i++);if(s[i]==ch)printf(&quot;Index = %d&quot;,i);else printf(&quot;Not found&quot;);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t2-q17">
+          <h3>17. Count vowels in a string</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char *unused; /* Standard string functions are available through string.h */
+    char s[200];int i,c=0;fgets(s,200,stdin);for(i=0;s[i];i++)if(strchr(&quot;aeiouAEIOU&quot;,s[i]))c++;printf(&quot;Vowels = %d&quot;,c);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t2-q18">
+          <h3>18. Convert numeric string to integer</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char *unused; /* Standard string functions are available through string.h */
+    char s[100];int i=0,sign=1,num=0;fgets(s,100,stdin);if(s[i]==&#x27;-&#x27;){sign=-1;i++;}for(;s[i]&gt;=&#x27;0&#x27;&amp;&amp;s[i]&lt;=&#x27;9&#x27;;i++)num=num*10+s[i]-&#x27;0&#x27;;printf(&quot;%d&quot;,sign*num);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t2-q19">
+          <h3>19. Convert numeric string to float</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char *unused; /* Standard string functions are available through string.h */
+    char s[100];float x=0.0f,place=0.1f;int i=0,sign=1;fgets(s,100,stdin);if(s[i]==&#x27;-&#x27;){sign=-1;i++;}while(s[i]&gt;=&#x27;0&#x27;&amp;&amp;s[i]&lt;=&#x27;9&#x27;)x=x*10+s[i++]-&#x27;0&#x27;;if(s[i]==&#x27;.&#x27;)i++;while(s[i]&gt;=&#x27;0&#x27;&amp;&amp;s[i]&lt;=&#x27;9&#x27;){x+=(s[i++]-&#x27;0&#x27;)*place;place/=10;}printf(&quot;%f&quot;,sign*x);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t2-q20">
+          <h3>20. Count characters, words, spaces and lines</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char *unused; /* Standard string functions are available through string.h */
+    char s[500];int ch=0,w=0,sp=0,lines=0,in=0;while(fgets(s,500,stdin)){int i;lines++;for(i=0;s[i];i++){if(s[i]!=&#x27;\n&#x27;)ch++;if(s[i]==&#x27; &#x27;)sp++;if(s[i]!=&#x27; &#x27;&amp;&amp;s[i]!=&#x27;\n&#x27;&amp;&amp;s[i]!=&#x27;\t&#x27;){if(!in)w++;in=1;}else in=0;}}printf(&quot;Characters=%d Words=%d Spaces=%d Lines=%d&quot;,ch,w,sp,lines);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t2-q21">
+          <h3>21. Generate all permutations of ABCDE</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char *unused; /* Standard string functions are available through string.h */
+    char s[]=&quot;ABCDE&quot;;int c[5]={0},i=0;char out[5];while(i&gt;=0){if(i==5){printf(&quot;%s\n&quot;,out);i--;continue;}if(c[i]&lt;5){int j=c[i]++;if(i==0||!strchr(out,s[j])){out[i]=s[j];i++;if(i&lt;5)c[i]=0;}}else{i--;}}
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t2-q22">
+          <h3>22. Sort characters of a string</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char *unused; /* Standard string functions are available through string.h */
+    char s[200],t;int i,j,n=0;fgets(s,200,stdin);while(s[n]&amp;&amp;s[n]!=&#x27;\n&#x27;)n++;for(i=0;i&lt;n-1;i++)for(j=0;j&lt;n-1-i;j++)if(s[j]&gt;s[j+1]){t=s[j];s[j]=s[j+1];s[j+1]=t;}s[n]=0;printf(&quot;%s&quot;,s);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t2-q23">
+          <h3>23. Count words and replace a word</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char *unused; /* Standard string functions are available through string.h */
+    char s[300],old[50],nw[50],out[500];int i=0,j=0,k=0,count=0;fgets(s,300,stdin);scanf(&quot;%49s%49s&quot;,old,nw);while(s[i]){if((i==0||s[i-1]==&#x27; &#x27;)&amp;&amp;strncmp(s+i,old,strlen(old))==0&amp;&amp;(s[i+strlen(old)]==&#x27; &#x27;||s[i+strlen(old)]==&#x27;\n&#x27;||s[i+strlen(old)]==0)){for(j=0;nw[j];j++)out[k++]=nw[j];i+=strlen(old);count++;}else out[k++]=s[i++];}out[k]=0;printf(&quot;%s\nReplaced=%d&quot;,out,count);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t2-q24">
+          <h3>24. Trim leading and trailing spaces</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char *unused; /* Standard string functions are available through string.h */
+    char s[200];int i=0,j;fgets(s,200,stdin);while(s[i]==&#x27; &#x27;||s[i]==&#x27;\t&#x27;)i++;j=strlen(s)-1;while(j&gt;=i&amp;&amp;(s[j]==&#x27; &#x27;||s[j]==&#x27;\t&#x27;||s[j]==&#x27;\n&#x27;))j--;while(i&lt;=j)putchar(s[i++]);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t2-q25">
+          <h3>25. Split and display first two words with indexes</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char *unused; /* Standard string functions are available through string.h */
+    char s[200];int i=0,w=0;fgets(s,200,stdin);while(s[i]==&#x27; &#x27;)i++;while(s[i]&amp;&amp;s[i]!=&#x27; &#x27;&amp;&amp;s[i]!=&#x27;\n&#x27;){printf(&quot;%c&quot;,s[i]);i++;}printf(&quot; (starts at 0)\n&quot;);while(s[i]==&#x27; &#x27;)i++;printf(&quot;Second word: &quot;);while(s[i]&amp;&amp;s[i]!=&#x27; &#x27;&amp;&amp;s[i]!=&#x27;\n&#x27;)putchar(s[i++]);printf(&quot; (starts at index %d)&quot;,i);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t2-q26">
+          <h3>26. Align text left, center and right in width 80</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char *unused; /* Standard string functions are available through string.h */
+    char s[200];int n=0,i;fgets(s,200,stdin);while(s[n]&amp;&amp;s[n]!=&#x27;\n&#x27;)n++;printf(&quot;Left : %s&quot;,s);printf(&quot;Center: %*s%s\n&quot;,(80-n)/2,&quot;&quot;,s);printf(&quot;Right : %*s%s&quot;,80-n,&quot;&quot;,s);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t2-q27">
+          <h3>27. Create, search, update and delete words in a dictionary</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char *unused; /* Standard string functions are available through string.h */
+    char d[20][30];int n=0,ch,i;char w[30];do{printf(&quot;\n1 Create 2 Search 3 Update 4 Delete 5 Display 0 Exit: &quot;);scanf(&quot;%d&quot;,&amp;ch);if(ch==1&amp;&amp;n&lt;20){scanf(&quot;%29s&quot;,d[n++]);}else if(ch==2||ch==3||ch==4){scanf(&quot;%29s&quot;,w);for(i=0;i&lt;n&amp;&amp;strcmp(d[i],w);i++);if(i==n)printf(&quot;Not found&quot;);else if(ch==2)printf(&quot;Found at %d&quot;,i);else if(ch==3)scanf(&quot;%29s&quot;,d[i]);else{for(;i&lt;n-1;i++)strcpy(d[i],d[i+1]);n--;}}else if(ch==5)for(i=0;i&lt;n;i++)printf(&quot;%s\n&quot;,d[i]);}while(ch!=0);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t2-q28">
+          <h3>28. Convert ASCII characters into an integer array</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char *unused; /* Standard string functions are available through string.h */
+    char s[200];int a[200],i,n=0;fgets(s,200,stdin);for(i=0;s[i]&amp;&amp;s[i]!=&#x27;\n&#x27;;i++)a[n++]=(unsigned char)s[i];for(i=0;i&lt;n;i++)printf(&quot;%d &quot;,a[i]);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t2-q29">
+          <h3>29. Count frequency of each character in a string</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char s[200];int f[256]={0},i;fgets(s,200,stdin);for(i=0;s[i]&amp;&amp;s[i]!=&#x27;\n&#x27;;i++)f[(unsigned char)s[i]]++;for(i=0;i&lt;256;i++)if(f[i])printf(&quot;%c : %d\n&quot;,i,f[i]);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section><p class="toplink"><a href="#top">Back to top ↑</a></p></section><section class="topic" id="topic-3"><h2>3. Recursion</h2>
+        <section class="question" id="t3-q1">
+          <h3>1. Calculate factorial using recursion</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+int fact(int n){ if(n&lt;=1) return 1; return n*fact(n-1); }
+int main(){ int n; scanf(&quot;%d&quot;,&amp;n); if(n&lt;0) printf(&quot;Invalid&quot;); else printf(&quot;%d&quot;,fact(n)); return 0; }</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t3-q2">
+          <h3>2. Calculate Fibonacci number using recursion</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+int fib(int n){ if(n&lt;=1) return n; return fib(n-1)+fib(n-2); }
+int main(){ int n; scanf(&quot;%d&quot;,&amp;n); if(n&lt;0) printf(&quot;Invalid&quot;); else printf(&quot;%d&quot;,fib(n)); return 0; }</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t3-q3">
+          <h3>3. Find sum from 1 to 10 using recursion</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+int sum(int n){ if(n==0) return 0; return n+sum(n-1); }
+int main(){ printf(&quot;%d&quot;,sum(10)); return 0; }</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t3-q4">
+          <h3>4. Convert decimal number to binary using recursion</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+void binary(int n){ if(n&gt;1) binary(n/2); printf(&quot;%d&quot;,n%2); }
+int main(){ int n; scanf(&quot;%d&quot;,&amp;n); if(n&lt;0) printf(&quot;Use a positive number&quot;); else binary(n); return 0; }</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t3-q5">
+          <h3>5. Find largest and smallest array elements using recursion</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+int mx(int a[],int n){ if(n==1)return a[0]; int x=mx(a,n-1); return a[n-1]&gt;x?a[n-1]:x; }
+int mn(int a[],int n){ if(n==1)return a[0]; int x=mn(a,n-1); return a[n-1]&lt;x?a[n-1]:x; }
+int main(){ int a[100],n,i; scanf(&quot;%d&quot;,&amp;n); for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;a[i]); if(n&gt;0)printf(&quot;Largest=%d Smallest=%d&quot;,mx(a,n),mn(a,n)); return 0; }</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t3-q6">
+          <h3>6. Find sum of digits using recursion</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+int sum(int n){ if(n==0)return 0; return n%10+sum(n/10); }
+int main(){ int n; scanf(&quot;%d&quot;,&amp;n); if(n&lt;0)n=-n; printf(&quot;%d&quot;,sum(n)); return 0; }</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t3-q7">
+          <h3>7. Find arithmetic mean using recursion</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+int total(int a[],int n){ if(n==0)return 0; return a[n-1]+total(a,n-1); }
+int main(){ int a[100],n,i; scanf(&quot;%d&quot;,&amp;n); for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;a[i]); if(n&gt;0)printf(&quot;Mean = %.2f&quot;,(float)total(a,n)/n); return 0; }</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t3-q8">
+          <h3>8. Find power of a number using recursion</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+long power(int a,int n){ if(n==0)return 1; return a*power(a,n-1); }
+int main(){ int a,n; scanf(&quot;%d%d&quot;,&amp;a,&amp;n); if(n&lt;0)printf(&quot;Use non-negative exponent&quot;); else printf(&quot;%ld&quot;,power(a,n)); return 0; }</code></pre>
+          </details>
+        </section><p class="toplink"><a href="#top">Back to top ↑</a></p></section><section class="topic" id="topic-4"><h2>4. Multi-Dimensional Arrays</h2>
+        <section class="question" id="t4-q1">
+          <h3>1. Read and display a 4x2 matrix</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[4][2],i,j;for(i=0;i&lt;4;i++)for(j=0;j&lt;2;j++)scanf(&quot;%d&quot;,&amp;a[i][j]);
+    for(i=0;i&lt;4;i++){for(j=0;j&lt;2;j++)printf(&quot;%d &quot;,a[i][j]);printf(&quot;\n&quot;);}
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t4-q2">
+          <h3>2. Add two matrices</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[10][10],b[10][10],i,j,r,c;scanf(&quot;%d%d&quot;,&amp;r,&amp;c);
+    for(i=0;i&lt;r;i++)for(j=0;j&lt;c;j++)scanf(&quot;%d&quot;,&amp;a[i][j]);
+    for(i=0;i&lt;r;i++)for(j=0;j&lt;c;j++)scanf(&quot;%d&quot;,&amp;b[i][j]);
+    for(i=0;i&lt;r;i++){for(j=0;j&lt;c;j++)printf(&quot;%d &quot;,a[i][j]+b[i][j]);printf(&quot;\n&quot;);}
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t4-q3">
+          <h3>3. Subtract two matrices</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[10][10],b[10][10],i,j,r,c;scanf(&quot;%d%d&quot;,&amp;r,&amp;c);
+    for(i=0;i&lt;r;i++)for(j=0;j&lt;c;j++)scanf(&quot;%d&quot;,&amp;a[i][j]);
+    for(i=0;i&lt;r;i++)for(j=0;j&lt;c;j++)scanf(&quot;%d&quot;,&amp;b[i][j]);
+    for(i=0;i&lt;r;i++){for(j=0;j&lt;c;j++)printf(&quot;%d &quot;,a[i][j]-b[i][j]);printf(&quot;\n&quot;);}
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t4-q4">
+          <h3>4. Multiply two matrices</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[10][10],b[10][10],c[10][10]={0},r1,c1,r2,c2,i,j,k;scanf(&quot;%d%d&quot;,&amp;r1,&amp;c1);
+    for(i=0;i&lt;r1;i++)for(j=0;j&lt;c1;j++)scanf(&quot;%d&quot;,&amp;a[i][j]);scanf(&quot;%d%d&quot;,&amp;r2,&amp;c2);
+    for(i=0;i&lt;r2;i++)for(j=0;j&lt;c2;j++)scanf(&quot;%d&quot;,&amp;b[i][j]);
+    if(c1!=r2){printf(&quot;Multiplication not possible&quot;);return 0;}
+    for(i=0;i&lt;r1;i++)for(j=0;j&lt;c2;j++)for(k=0;k&lt;c1;k++)c[i][j]+=a[i][k]*b[k][j];
+    for(i=0;i&lt;r1;i++){for(j=0;j&lt;c2;j++)printf(&quot;%d &quot;,c[i][j]);printf(&quot;\n&quot;);}
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t4-q5">
+          <h3>5. Copy a matrix</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[10][10],b[10][10],r,c,i,j;scanf(&quot;%d%d&quot;,&amp;r,&amp;c);
+    for(i=0;i&lt;r;i++)for(j=0;j&lt;c;j++)scanf(&quot;%d&quot;,&amp;a[i][j]);
+    for(i=0;i&lt;r;i++)for(j=0;j&lt;c;j++)b[i][j]=a[i][j];
+    for(i=0;i&lt;r;i++){for(j=0;j&lt;c;j++)printf(&quot;%d &quot;,b[i][j]);printf(&quot;\n&quot;);}
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t4-q6">
+          <h3>6. Multiply matrix by a scalar</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[10][10],r,c,k,i,j;scanf(&quot;%d%d&quot;,&amp;r,&amp;c);for(i=0;i&lt;r;i++)for(j=0;j&lt;c;j++)scanf(&quot;%d&quot;,&amp;a[i][j]);scanf(&quot;%d&quot;,&amp;k);
+    for(i=0;i&lt;r;i++){for(j=0;j&lt;c;j++)printf(&quot;%d &quot;,a[i][j]*k);printf(&quot;\n&quot;);}
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t4-q7">
+          <h3>7. Play Tic-Tac-Toe using a 2D array</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char b[3][3]={{&#x27;1&#x27;,&#x27;2&#x27;,&#x27;3&#x27;},{&#x27;4&#x27;,&#x27;5&#x27;,&#x27;6&#x27;},{&#x27;7&#x27;,&#x27;8&#x27;,&#x27;9&#x27;}},p=&#x27;X&#x27;;int r,c,m,i,j;
+    for(m=0;m&lt;9;m++){for(i=0;i&lt;3;i++)printf(&quot;%c %c %c\n&quot;,b[i][0],b[i][1],b[i][2]);printf(&quot;Player %c, enter row and column (1-3): &quot;,p);scanf(&quot;%d%d&quot;,&amp;r,&amp;c);
+    if(r&lt;1||r&gt;3||c&lt;1||c&gt;3||b[r-1][c-1]==&#x27;X&#x27;||b[r-1][c-1]==&#x27;O&#x27;){printf(&quot;Invalid move\n&quot;);m--;continue;}b[r-1][c-1]=p;
+    for(i=0;i&lt;3;i++)if((b[i][0]==p&amp;&amp;b[i][1]==p&amp;&amp;b[i][2]==p)||(b[0][i]==p&amp;&amp;b[1][i]==p&amp;&amp;b[2][i]==p))break;
+    if((b[0][0]==p&amp;&amp;b[1][1]==p&amp;&amp;b[2][2]==p)||(b[0][2]==p&amp;&amp;b[1][1]==p&amp;&amp;b[2][0]==p)||i&lt;3){for(i=0;i&lt;3;i++)printf(&quot;%c %c %c\n&quot;,b[i][0],b[i][1],b[i][2]);printf(&quot;Player %c wins&quot;,p);return 0;}p=(p==&#x27;X&#x27;)?&#x27;O&#x27;:&#x27;X&#x27;;}
+    printf(&quot;Draw&quot;);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section><p class="toplink"><a href="#top">Back to top ↑</a></p></section><section class="topic" id="topic-5"><h2>5. Stacks</h2>
+        <section class="question" id="t5-q1">
+          <h3>1. Implement integer stack using an array</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int s[100],top=-1,ch,x;do{printf(&quot;\n1 Push 2 Pop 3 Display 0 Exit: &quot;);scanf(&quot;%d&quot;,&amp;ch);if(ch==1){scanf(&quot;%d&quot;,&amp;x);if(top&lt;99)s[++top]=x;}else if(ch==2){if(top&lt;0)printf(&quot;Underflow&quot;);else printf(&quot;Popped %d&quot;,s[top--]);}else if(ch==3)for(x=top;x&gt;=0;x--)printf(&quot;%d &quot;,s[x]);}while(ch);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t5-q2">
+          <h3>2. Implement character stack using an array</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char s[100],x;int top=-1,ch,i;do{printf(&quot;\n1 Push 2 Pop 3 Display 0 Exit: &quot;);scanf(&quot;%d&quot;,&amp;ch);if(ch==1){scanf(&quot; %c&quot;,&amp;x);if(top&lt;99)s[++top]=x;}else if(ch==2){if(top&lt;0)printf(&quot;Underflow&quot;);else printf(&quot;Popped %c&quot;,s[top--]);}else if(ch==3)for(i=top;i&gt;=0;i--)printf(&quot;%c &quot;,s[i]);}while(ch);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t5-q3">
+          <h3>3. Implement dynamic integer stack using linked nodes</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+struct node{int d;struct node*n;};struct node*top=NULL,*t;int ch,x;do{scanf(&quot;%d&quot;,&amp;ch);if(ch==1){scanf(&quot;%d&quot;,&amp;x);t=(struct node*)malloc(sizeof(struct node));t-&gt;d=x;t-&gt;n=top;top=t;}else if(ch==2){if(!top)printf(&quot;Underflow&quot;);else{t=top;printf(&quot;%d&quot;,t-&gt;d);top=top-&gt;n;free(t);}}else if(ch==3)for(t=top;t;t=t-&gt;n)printf(&quot;%d &quot;,t-&gt;d);}while(ch);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t5-q4">
+          <h3>4. Implement dynamic character stack using linked nodes</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+struct node{char d;struct node*n;};struct node*top=NULL,*t;int ch;char x;do{scanf(&quot;%d&quot;,&amp;ch);if(ch==1){scanf(&quot; %c&quot;,&amp;x);t=malloc(sizeof(struct node));t-&gt;d=x;t-&gt;n=top;top=t;}else if(ch==2){if(!top)printf(&quot;Underflow&quot;);else{t=top;printf(&quot;%c&quot;,t-&gt;d);top=top-&gt;n;free(t);}}else if(ch==3)for(t=top;t;t=t-&gt;n)printf(&quot;%c &quot;,t-&gt;d);}while(ch);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t5-q5">
+          <h3>5. Reverse a string using a stack</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char s[200],st[200];int i,n=0;fgets(s,200,stdin);while(s[n]&amp;&amp;s[n]!=&#x27;\n&#x27;)n++;for(i=0;i&lt;n;i++)st[i]=s[i];for(i=n-1;i&gt;=0;i--)putchar(st[i]);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t5-q6">
+          <h3>6. Check matching of a single type of bracket</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char s[200],st[200];int i,t=0,ok=1;fgets(s,200,stdin);for(i=0;s[i];i++){if(s[i]==&#x27;(&#x27;)st[t++]=s[i];else if(s[i]==&#x27;)&#x27;){if(t==0)ok=0;else t--;}}if(t)ok=0;printf(ok?&quot;Balanced&quot;:&quot;Not balanced&quot;);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t5-q7">
+          <h3>7. Implement two stacks in one array</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[100],t1=-1,t2=100,ch,x;do{scanf(&quot;%d&quot;,&amp;ch);if(ch==1){scanf(&quot;%d&quot;,&amp;x);if(t1+1&lt;t2)a[++t1]=x;}else if(ch==2){scanf(&quot;%d&quot;,&amp;x);if(t1+1&lt;t2)a[--t2]=x;}else if(ch==3&amp;&amp;t1&gt;=0)printf(&quot;Stack1 top=%d&quot;,a[t1]);else if(ch==4&amp;&amp;t2&lt;100)printf(&quot;Stack2 top=%d&quot;,a[t2]);}while(ch);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t5-q8">
+          <h3>8. Sort a stack using an auxiliary array</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int s[100],tmp[100],n,i,j,x;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;s[i]);for(i=0;i&lt;n-1;i++)for(j=0;j&lt;n-1-i;j++)if(s[j]&gt;s[j+1]){x=s[j];s[j]=s[j+1];s[j+1]=x;}for(i=n-1;i&gt;=0;i--)printf(&quot;%d &quot;,s[i]);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t5-q9">
+          <h3>9. Convert infix expression to postfix</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char in[200],st[200],out[200];int i,t=-1,k=0;fgets(in,200,stdin);for(i=0;in[i]&amp;&amp;in[i]!=&#x27;\n&#x27;;i++){char c=in[i];if((c&gt;=&#x27;a&#x27;&amp;&amp;c&lt;=&#x27;z&#x27;)||(c&gt;=&#x27;A&#x27;&amp;&amp;c&lt;=&#x27;Z&#x27;)||(c&gt;=&#x27;0&#x27;&amp;&amp;c&lt;=&#x27;9&#x27;))out[k++]=c;else if(c==&#x27;(&#x27;)st[++t]=c;else if(c==&#x27;)&#x27;){while(t&gt;=0&amp;&amp;st[t]!=&#x27;(&#x27;)out[k++]=st[t--];if(t&gt;=0)t--;}else if(c==&#x27;+&#x27;||c==&#x27;-&#x27;||c==&#x27;*&#x27;||c==&#x27;/&#x27;){while(t&gt;=0&amp;&amp;st[t]!=&#x27;(&#x27;&amp;&amp;((st[t]==&#x27;*&#x27;||st[t]==&#x27;/&#x27;)||(c==&#x27;+&#x27;||c==&#x27;-&#x27;)))out[k++]=st[t--];st[++t]=c;}}while(t&gt;=0)out[k++]=st[t--];out[k]=0;printf(&quot;%s&quot;,out);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t5-q10">
+          <h3>10. Convert infix expression to prefix</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char s[200],rev[200],st[200],out[200];int i,n=0,t=-1,k=0;fgets(s,200,stdin);while(s[n]&amp;&amp;s[n]!=&#x27;\n&#x27;)n++;for(i=n-1;i&gt;=0;i--){if(s[i]==&#x27;(&#x27;)rev[n-1-i]=&#x27;)&#x27;;else if(s[i]==&#x27;)&#x27;)rev[n-1-i]=&#x27;(&#x27;;else rev[n-1-i]=s[i];}rev[n]=0;for(i=0;i&lt;n;i++){char c=rev[i];if((c&gt;=&#x27;a&#x27;&amp;&amp;c&lt;=&#x27;z&#x27;)||(c&gt;=&#x27;A&#x27;&amp;&amp;c&lt;=&#x27;Z&#x27;)||(c&gt;=&#x27;0&#x27;&amp;&amp;c&lt;=&#x27;9&#x27;))out[k++]=c;else if(c==&#x27;)&#x27;)st[++t]=c;else if(c==&#x27;(&#x27;){while(t&gt;=0&amp;&amp;st[t]!=&#x27;)&#x27;)out[k++]=st[t--];if(t&gt;=0)t--;}else{while(t&gt;=0&amp;&amp;st[t]!=&#x27;)&#x27;)out[k++]=st[t--];st[++t]=c;}}while(t&gt;=0)out[k++]=st[t--];for(i=k-1;i&gt;=0;i--)putchar(out[i]);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t5-q11">
+          <h3>11. Evaluate a postfix expression</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int s[100],t=-1,i,a,b;char e[200];fgets(e,200,stdin);for(i=0;e[i]&amp;&amp;e[i]!=&#x27;\n&#x27;;i++){if(e[i]&gt;=&#x27;0&#x27;&amp;&amp;e[i]&lt;=&#x27;9&#x27;)s[++t]=e[i]-&#x27;0&#x27;;else if(e[i]==&#x27;+&#x27;||e[i]==&#x27;-&#x27;||e[i]==&#x27;*&#x27;||e[i]==&#x27;/&#x27;){b=s[t--];a=s[t--];if(e[i]==&#x27;+&#x27;)s[++t]=a+b;else if(e[i]==&#x27;-&#x27;)s[++t]=a-b;else if(e[i]==&#x27;*&#x27;)s[++t]=a*b;else s[++t]=a/b;}}if(t==0)printf(&quot;%d&quot;,s[t]);else printf(&quot;Invalid expression&quot;);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t5-q12">
+          <h3>12. Solve Tower of Hanoi using recursion and stack moves</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+void hanoi(int n,char a,char b,char c){if(n==0)return;hanoi(n-1,a,c,b);printf(&quot;Move disk %d from %c to %c\n&quot;,n,a,c);hanoi(n-1,b,a,c);}
+    int n;scanf(&quot;%d&quot;,&amp;n);hanoi(n,&#x27;A&#x27;,&#x27;B&#x27;,&#x27;C&#x27;);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t5-q13">
+          <h3>13. Evaluate a prefix expression</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int s[100],t=-1,i,a,b,n;char e[200];fgets(e,200,stdin);n=strlen(e);for(i=n-1;i&gt;=0;i--){if(e[i]&gt;=&#x27;0&#x27;&amp;&amp;e[i]&lt;=&#x27;9&#x27;)s[++t]=e[i]-&#x27;0&#x27;;else if(e[i]==&#x27;+&#x27;||e[i]==&#x27;-&#x27;||e[i]==&#x27;*&#x27;||e[i]==&#x27;/&#x27;){a=s[t--];b=s[t--];if(e[i]==&#x27;+&#x27;)s[++t]=a+b;else if(e[i]==&#x27;-&#x27;)s[++t]=a-b;else if(e[i]==&#x27;*&#x27;)s[++t]=a*b;else s[++t]=a/b;}}if(t==0)printf(&quot;%d&quot;,s[t]);else printf(&quot;Invalid expression&quot;);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section><p class="toplink"><a href="#top">Back to top ↑</a></p></section><section class="topic" id="topic-6"><h2>6. Queues</h2>
+        <section class="question" id="t6-q1">
+          <h3>1. Implement simple integer queue using an array</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int q[100],f=0,r=-1,ch,x,i;do{scanf(&quot;%d&quot;,&amp;ch);if(ch==1){scanf(&quot;%d&quot;,&amp;x);if(r&lt;99)q[++r]=x;}else if(ch==2){if(f&gt;r)printf(&quot;Empty&quot;);else printf(&quot;%d&quot;,q[f++]);}else if(ch==3)for(i=f;i&lt;=r;i++)printf(&quot;%d &quot;,q[i]);}while(ch);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t6-q2">
+          <h3>2. Implement simple string queue using an array</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char q[20][50];int f=0,r=-1,ch,i;do{scanf(&quot;%d&quot;,&amp;ch);if(ch==1&amp;&amp;r&lt;19)scanf(&quot;%49s&quot;,q[++r]);else if(ch==2){if(f&gt;r)printf(&quot;Empty&quot;);else printf(&quot;%s&quot;,q[f++]);}else if(ch==3)for(i=f;i&lt;=r;i++)printf(&quot;%s &quot;,q[i]);}while(ch);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t6-q3">
+          <h3>3. Implement dynamic integer queue using linked list</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+struct node{int d;struct node*n;};struct node*f=NULL,*r=NULL,*t;int ch,x;do{scanf(&quot;%d&quot;,&amp;ch);if(ch==1){scanf(&quot;%d&quot;,&amp;x);t=malloc(sizeof(struct node));t-&gt;d=x;t-&gt;n=NULL;if(!r)f=r=t;else{r-&gt;n=t;r=t;}}else if(ch==2){if(!f)printf(&quot;Empty&quot;);else{t=f;printf(&quot;%d&quot;,t-&gt;d);f=f-&gt;n;if(!f)r=NULL;free(t);}}else if(ch==3)for(t=f;t;t=t-&gt;n)printf(&quot;%d &quot;,t-&gt;d);}while(ch);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t6-q4">
+          <h3>4. Implement dynamic string queue using linked list</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+struct node{char d[50];struct node*n;};struct node*f=NULL,*r=NULL,*t;int ch;do{scanf(&quot;%d&quot;,&amp;ch);if(ch==1){t=malloc(sizeof(struct node));scanf(&quot;%49s&quot;,t-&gt;d);t-&gt;n=NULL;if(!r)f=r=t;else{r-&gt;n=t;r=t;}}else if(ch==2){if(!f)printf(&quot;Empty&quot;);else{t=f;printf(&quot;%s&quot;,t-&gt;d);f=f-&gt;n;if(!f)r=NULL;free(t);}}else if(ch==3)for(t=f;t;t=t-&gt;n)printf(&quot;%s &quot;,t-&gt;d);}while(ch);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t6-q5">
+          <h3>5. Implement circular integer queue</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int q[100],f=-1,r=-1,ch,x,i;do{scanf(&quot;%d&quot;,&amp;ch);if(ch==1){scanf(&quot;%d&quot;,&amp;x);if((r+1)%100!=f){if(f==-1)f=0;r=(r+1)%100;q[r]=x;}}else if(ch==2){if(f==-1)printf(&quot;Empty&quot;);else{printf(&quot;%d&quot;,q[f]);if(f==r)f=r=-1;else f=(f+1)%100;}}else if(ch==3){if(f!=-1){i=f;while(1){printf(&quot;%d &quot;,q[i]);if(i==r)break;i=(i+1)%100;}}}}while(ch);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t6-q6">
+          <h3>6. Implement circular string queue</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char q[20][50];int f=-1,r=-1,ch,i;do{scanf(&quot;%d&quot;,&amp;ch);if(ch==1){if((r+1)%20!=f){if(f==-1)f=0;r=(r+1)%20;scanf(&quot;%49s&quot;,q[r]);}}else if(ch==2){if(f==-1)printf(&quot;Empty&quot;);else{printf(&quot;%s&quot;,q[f]);if(f==r)f=r=-1;else f=(f+1)%20;}}else if(ch==3&amp;&amp;f!=-1){i=f;while(1){printf(&quot;%s &quot;,q[i]);if(i==r)break;i=(i+1)%20;}}}while(ch);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t6-q7">
+          <h3>7. Implement priority queue for integers</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int q[100],p[100],n=0,ch,x,pr,i,j;do{scanf(&quot;%d&quot;,&amp;ch);if(ch==1&amp;&amp;n&lt;100){scanf(&quot;%d%d&quot;,&amp;x,&amp;pr);i=n++;while(i&gt;0&amp;&amp;p[i-1]&gt;pr){q[i]=q[i-1];p[i]=p[i-1];i--;}q[i]=x;p[i]=pr;}else if(ch==2){if(!n)printf(&quot;Empty&quot;);else{printf(&quot;%d&quot;,q[0]);for(i=0;i&lt;n-1;i++){q[i]=q[i+1];p[i]=p[i+1];}n--;}}else if(ch==3)for(i=0;i&lt;n;i++)printf(&quot;%d(p%d) &quot;,q[i],p[i]);}while(ch);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t6-q8">
+          <h3>8. Implement priority queue for strings</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char q[50][40],s[40];int p[50],n=0,ch,pr,i;do{scanf(&quot;%d&quot;,&amp;ch);if(ch==1&amp;&amp;n&lt;50){scanf(&quot;%39s%d&quot;,s,&amp;pr);i=n++;while(i&gt;0&amp;&amp;p[i-1]&gt;pr){strcpy(q[i],q[i-1]);p[i]=p[i-1];i--;}strcpy(q[i],s);p[i]=pr;}else if(ch==2){if(!n)printf(&quot;Empty&quot;);else{printf(&quot;%s&quot;,q[0]);for(i=0;i&lt;n-1;i++){strcpy(q[i],q[i+1]);p[i]=p[i+1];}n--;}}else if(ch==3)for(i=0;i&lt;n;i++)printf(&quot;%s(p%d) &quot;,q[i],p[i]);}while(ch);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t6-q9">
+          <h3>9. Implement deque using an array</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int q[100],f=-1,r=-1,ch,x;do{scanf(&quot;%d&quot;,&amp;ch);if(ch==1&amp;&amp;r&lt;99)q[++r]=(scanf(&quot;%d&quot;,&amp;x),x);else if(ch==2&amp;&amp;f&lt;=r)q[f++]=(scanf(&quot;%d&quot;,&amp;x),x);else if(ch==3){if(f&lt;=r)printf(&quot;%d&quot;,q[f++]);}else if(ch==4){if(f&lt;=r)printf(&quot;%d&quot;,q[r--]);}else if(ch==5)for(x=f;x&lt;=r;x++)printf(&quot;%d &quot;,q[x]);}while(ch);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t6-q10">
+          <h3>10. Implement deque for strings</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char q[50][40],s[40];int f=0,r=-1,ch,i;do{scanf(&quot;%d&quot;,&amp;ch);if(ch==1&amp;&amp;r&lt;49){scanf(&quot;%39s&quot;,q[++r]);}else if(ch==2&amp;&amp;f&lt;=r){for(i=r;i&gt;=f;i--)strcpy(q[i+1],q[i]);scanf(&quot;%39s&quot;,q[f++]);r++;}else if(ch==3&amp;&amp;f&lt;=r)printf(&quot;%s&quot;,q[f++]);else if(ch==4&amp;&amp;f&lt;=r)printf(&quot;%s&quot;,q[r--]);else if(ch==5)for(i=f;i&lt;=r;i++)printf(&quot;%s &quot;,q[i]);}while(ch);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t6-q11">
+          <h3>11. Implement dynamic priority queue for integers</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+struct node{int d,p;struct node*n;};struct node*h=NULL,*t,*x;int ch,v,pr;do{scanf(&quot;%d&quot;,&amp;ch);if(ch==1){scanf(&quot;%d%d&quot;,&amp;v,&amp;pr);x=malloc(sizeof(struct node));x-&gt;d=v;x-&gt;p=pr; if(!h||pr&lt;h-&gt;p){x-&gt;n=h;h=x;}else{t=h;while(t-&gt;n&amp;&amp;t-&gt;n-&gt;p&lt;=pr)t=t-&gt;n;x-&gt;n=t-&gt;n;t-&gt;n=x;}}else if(ch==2&amp;&amp;h){t=h;printf(&quot;%d&quot;,t-&gt;d);h=h-&gt;n;free(t);}else if(ch==3)for(t=h;t;t=t-&gt;n)printf(&quot;%d &quot;,t-&gt;d);}while(ch);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t6-q12">
+          <h3>12. Implement dynamic priority queue for strings</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+struct node{char d[40];int p;struct node*n;};struct node*h=NULL,*t,*x;int ch,pr;do{scanf(&quot;%d&quot;,&amp;ch);if(ch==1){x=malloc(sizeof(struct node));scanf(&quot;%39s%d&quot;,x-&gt;d,&amp;pr);x-&gt;p=pr;if(!h||pr&lt;h-&gt;p){x-&gt;n=h;h=x;}else{t=h;while(t-&gt;n&amp;&amp;t-&gt;n-&gt;p&lt;=pr)t=t-&gt;n;x-&gt;n=t-&gt;n;t-&gt;n=x;}}else if(ch==2&amp;&amp;h){t=h;printf(&quot;%s&quot;,t-&gt;d);h=h-&gt;n;free(t);}else if(ch==3)for(t=h;t;t=t-&gt;n)printf(&quot;%s &quot;,t-&gt;d);}while(ch);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t6-q13">
+          <h3>13. Find starting petrol pump for circular tour</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int p[100],d[100],n,i,start=0,balance=0,def=0;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++)scanf(&quot;%d%d&quot;,&amp;p[i],&amp;d[i]);for(i=0;i&lt;n;i++){balance+=p[i]-d[i];if(balance&lt;0){start=i+1;def+=balance;balance=0;}}if(balance+def&gt;=0)printf(&quot;Start = %d&quot;,start%n);else printf(&quot;No possible tour&quot;);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t6-q14">
+          <h3>14. Find longest valid parentheses substring</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char s[300];int st[300],top=-1,i,last=-1,best=0;fgets(s,300,stdin);for(i=0;s[i]&amp;&amp;s[i]!=&#x27;\n&#x27;;i++){if(s[i]==&#x27;(&#x27;)st[++top]=i;else if(s[i]==&#x27;)&#x27;){if(top&lt;0)last=i;else{top--;if(top&lt;0){if(i-last&gt;best)best=i-last;}else if(i-st[top]&gt;best)best=i-st[top];}}}printf(&quot;Longest length = %d&quot;,best);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t6-q15">
+          <h3>15. Find next greater element for each array element</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[100],n,i,j;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;a[i]);for(i=0;i&lt;n;i++){for(j=i+1;j&lt;n&amp;&amp;a[j]&lt;=a[i];j++);if(j&lt;n)printf(&quot;%d -&gt; %d\n&quot;,a[i],a[j]);else printf(&quot;%d -&gt; -1\n&quot;,a[i]);}
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t6-q16">
+          <h3>16. Find next smaller element for each array element</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[100],n,i,j;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;a[i]);for(i=0;i&lt;n;i++){for(j=i+1;j&lt;n&amp;&amp;a[j]&gt;=a[i];j++);if(j&lt;n)printf(&quot;%d -&gt; %d\n&quot;,a[i],a[j]);else printf(&quot;%d -&gt; -1\n&quot;,a[i]);}
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t6-q17">
+          <h3>17. Find first non-repeating character in a stream</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char s[300];int count[256]={0},i;fgets(s,300,stdin);for(i=0;s[i]&amp;&amp;s[i]!=&#x27;\n&#x27;;i++){count[(unsigned char)s[i]]++;for(int j=0;j&lt;=i;j++)if(count[(unsigned char)s[j]]==1){printf(&quot;%c &quot;,s[j]);break;}if(j&gt;i)printf(&quot;-1 &quot;);}
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t6-q18">
+          <h3>18. Reverse first K elements of a queue</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int q[100],n,k,i;scanf(&quot;%d%d&quot;,&amp;n,&amp;k);for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;q[i]);if(k&gt;n)k=n;for(i=k-1;i&gt;=0;i--)printf(&quot;%d &quot;,q[i]);for(i=k;i&lt;n;i++)printf(&quot;%d &quot;,q[i]);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t6-q19">
+          <h3>19. Reverse an entire queue</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int q[100],n,i;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;q[i]);for(i=n-1;i&gt;=0;i--)printf(&quot;%d &quot;,q[i]);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t6-q20">
+          <h3>20. Find time to rot all oranges in a grid</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[20][20],r,c,i,j,t=0,change;scanf(&quot;%d%d&quot;,&amp;r,&amp;c);for(i=0;i&lt;r;i++)for(j=0;j&lt;c;j++)scanf(&quot;%d&quot;,&amp;a[i][j]);do{change=0;for(i=0;i&lt;r;i++)for(j=0;j&lt;c;j++)if(a[i][j]==2){if(i&gt;0&amp;&amp;a[i-1][j]==1){a[i-1][j]=3;change=1;}if(i&lt;r-1&amp;&amp;a[i+1][j]==1){a[i+1][j]=3;change=1;}if(j&gt;0&amp;&amp;a[i][j-1]==1){a[i][j-1]=3;change=1;}if(j&lt;c-1&amp;&amp;a[i][j+1]==1){a[i][j+1]=3;change=1;}}if(change){t++;for(i=0;i&lt;r;i++)for(j=0;j&lt;c;j++)if(a[i][j]==3)a[i][j]=2;}}while(change);for(i=0;i&lt;r;i++)for(j=0;j&lt;c;j++)if(a[i][j]==1){printf(&quot;-1&quot;);return 0;}printf(&quot;%d&quot;,t);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section><p class="toplink"><a href="#top">Back to top ↑</a></p></section><section class="topic" id="topic-7"><h2>7. Linked List</h2>
+        <section class="question" id="t7-q1">
+          <h3>1. Perform insertion, deletion, display and search in singly linked list</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+struct node{int d;struct node*n;};struct node*h=NULL,*t,*x,*p;int ch,v;do{scanf(&quot;%d&quot;,&amp;ch);if(ch==1){scanf(&quot;%d&quot;,&amp;v);x=malloc(sizeof(struct node));x-&gt;d=v;x-&gt;n=NULL;if(!h)h=x;else{t=h;while(t-&gt;n)t=t-&gt;n;t-&gt;n=x;}}else if(ch==2&amp;&amp;h){t=h;h=h-&gt;n;free(t);}else if(ch==3)for(t=h;t;t=t-&gt;n)printf(&quot;%d &quot;,t-&gt;d);else if(ch==4){scanf(&quot;%d&quot;,&amp;v);for(t=h;t&amp;&amp;t-&gt;d!=v;t=t-&gt;n);printf(t?&quot;Found&quot;:&quot;Not found&quot;);}}while(ch);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t7-q2">
+          <h3>2. Implement singly circular linked list</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+struct node{int d;struct node*n;};struct node*h=NULL,*t,*x;int ch,v;do{scanf(&quot;%d&quot;,&amp;ch);if(ch==1){scanf(&quot;%d&quot;,&amp;v);x=malloc(sizeof(struct node));x-&gt;d=v;if(!h){h=x;x-&gt;n=h;}else{t=h;while(t-&gt;n!=h)t=t-&gt;n;t-&gt;n=x;x-&gt;n=h;}}else if(ch==2&amp;&amp;h){if(h-&gt;n==h){free(h);h=NULL;}else{t=h;while(t-&gt;n!=h)t=t-&gt;n;x=h;h=h-&gt;n;t-&gt;n=h;free(x);}}else if(ch==3&amp;&amp;h){t=h;do{printf(&quot;%d &quot;,t-&gt;d);t=t-&gt;n;}while(t!=h);}}while(ch);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t7-q3">
+          <h3>3. Implement doubly linked list</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+struct node{int d;struct node*p,*n;};struct node*h=NULL,*t,*x;int ch,v;do{scanf(&quot;%d&quot;,&amp;ch);if(ch==1){scanf(&quot;%d&quot;,&amp;v);x=malloc(sizeof(struct node));x-&gt;d=v;x-&gt;n=NULL;x-&gt;p=NULL;if(!h)h=x;else{t=h;while(t-&gt;n)t=t-&gt;n;t-&gt;n=x;x-&gt;p=t;}}else if(ch==2&amp;&amp;h){t=h;h=h-&gt;n;if(h)h-&gt;p=NULL;free(t);}else if(ch==3)for(t=h;t;t=t-&gt;n)printf(&quot;%d &quot;,t-&gt;d);else if(ch==4)for(t=h;t&amp;&amp;t-&gt;n;t=t-&gt;n);for(;t;t=t-&gt;p)printf(&quot;%d &quot;,t-&gt;d);}while(ch);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t7-q4">
+          <h3>4. Implement doubly circular linked list</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+struct node{int d;struct node*p,*n;};struct node*h=NULL,*t,*x;int ch,v;do{scanf(&quot;%d&quot;,&amp;ch);if(ch==1){scanf(&quot;%d&quot;,&amp;v);x=malloc(sizeof(struct node));x-&gt;d=v;if(!h){h=x;x-&gt;n=x;x-&gt;p=x;}else{t=h-&gt;p;t-&gt;n=x;x-&gt;p=t;x-&gt;n=h;h-&gt;p=x;}}else if(ch==2&amp;&amp;h){if(h-&gt;n==h){free(h);h=NULL;}else{t=h-&gt;p;h=h-&gt;n;h-&gt;p=t;t-&gt;n=h;free(t-&gt;n-&gt;p);}}else if(ch==3&amp;&amp;h){t=h;do{printf(&quot;%d &quot;,t-&gt;d);t=t-&gt;n;}while(t!=h);}}while(ch);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t7-q5">
+          <h3>5. Implement singly linked list for strings</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+struct node{char d[40];struct node*n;};struct node*h=NULL,*t,*x;int ch;do{scanf(&quot;%d&quot;,&amp;ch);if(ch==1){x=malloc(sizeof(struct node));scanf(&quot;%39s&quot;,x-&gt;d);x-&gt;n=NULL;if(!h)h=x;else{t=h;while(t-&gt;n)t=t-&gt;n;t-&gt;n=x;}}else if(ch==2&amp;&amp;h){t=h;h=h-&gt;n;free(t);}else if(ch==3)for(t=h;t;t=t-&gt;n)printf(&quot;%s &quot;,t-&gt;d);}while(ch);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t7-q6">
+          <h3>6. Implement singly circular linked list for strings</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+struct node{char d[40];struct node*n;};struct node*h=NULL,*t,*x;int ch;do{scanf(&quot;%d&quot;,&amp;ch);if(ch==1){x=malloc(sizeof(struct node));scanf(&quot;%39s&quot;,x-&gt;d);if(!h){h=x;x-&gt;n=h;}else{t=h;while(t-&gt;n!=h)t=t-&gt;n;t-&gt;n=x;x-&gt;n=h;}}else if(ch==2&amp;&amp;h){if(h-&gt;n==h){free(h);h=NULL;}else{t=h;while(t-&gt;n!=h)t=t-&gt;n;x=h;h=h-&gt;n;t-&gt;n=h;free(x);}}else if(ch==3&amp;&amp;h){t=h;do{printf(&quot;%s &quot;,t-&gt;d);t=t-&gt;n;}while(t!=h);}}while(ch);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t7-q7">
+          <h3>7. Implement doubly linked list for strings</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+struct node{char d[40];struct node*p,*n;};struct node*h=NULL,*t,*x;int ch;do{scanf(&quot;%d&quot;,&amp;ch);if(ch==1){x=malloc(sizeof(struct node));scanf(&quot;%39s&quot;,x-&gt;d);x-&gt;p=NULL;x-&gt;n=NULL;if(!h)h=x;else{t=h;while(t-&gt;n)t=t-&gt;n;t-&gt;n=x;x-&gt;p=t;}}else if(ch==2&amp;&amp;h){t=h;h=h-&gt;n;if(h)h-&gt;p=NULL;free(t);}else if(ch==3)for(t=h;t;t=t-&gt;n)printf(&quot;%s &quot;,t-&gt;d);}while(ch);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t7-q8">
+          <h3>8. Implement doubly circular linked list for strings</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+struct node{char d[40];struct node*p,*n;};struct node*h=NULL,*t,*x;int ch;do{scanf(&quot;%d&quot;,&amp;ch);if(ch==1){x=malloc(sizeof(struct node));scanf(&quot;%39s&quot;,x-&gt;d);if(!h){h=x;x-&gt;n=x;x-&gt;p=x;}else{t=h-&gt;p;t-&gt;n=x;x-&gt;p=t;x-&gt;n=h;h-&gt;p=x;}}else if(ch==2&amp;&amp;h){if(h-&gt;n==h){free(h);h=NULL;}else{t=h-&gt;p;t-&gt;n=h-&gt;n;h-&gt;n-&gt;p=t;x=h;h=h-&gt;n;free(x);}}else if(ch==3&amp;&amp;h){t=h;do{printf(&quot;%s &quot;,t-&gt;d);t=t-&gt;n;}while(t!=h);}}while(ch);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t7-q9">
+          <h3>9. Add two polynomials using linked lists</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+struct node{int c,e;struct node*n;};struct node*a=NULL,*b=NULL,*r=NULL,*t,*x;int n,i,c,e;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++){scanf(&quot;%d%d&quot;,&amp;c,&amp;e);x=malloc(sizeof(struct node));x-&gt;c=c;x-&gt;e=e;x-&gt;n=a;a=x;}scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++){scanf(&quot;%d%d&quot;,&amp;c,&amp;e);x=malloc(sizeof(struct node));x-&gt;c=c;x-&gt;e=e;x-&gt;n=b;b=x;}for(t=a;t;t=t-&gt;n){x=malloc(sizeof(struct node));*x=*t;x-&gt;n=r;r=x;}for(t=b;t;t=t-&gt;n){for(x=r;x&amp;&amp;x-&gt;e!=t-&gt;e;x=x-&gt;n);if(x)x-&gt;c+=t-&gt;c;else{x=malloc(sizeof(struct node));*x=*t;x-&gt;n=r;r=x;}}for(t=r;t;t=t-&gt;n)printf(&quot;%dx^%d + &quot;,t-&gt;c,t-&gt;e);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t7-q10">
+          <h3>10. Subtract two polynomials using linked lists</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+struct node{int c,e;struct node*n;};struct node*a=NULL,*b=NULL,*r=NULL,*t,*x;int n,i,c,e;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++){scanf(&quot;%d%d&quot;,&amp;c,&amp;e);x=malloc(sizeof(struct node));x-&gt;c=c;x-&gt;e=e;x-&gt;n=a;a=x;}scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++){scanf(&quot;%d%d&quot;,&amp;c,&amp;e);x=malloc(sizeof(struct node));x-&gt;c=-c;x-&gt;e=e;x-&gt;n=b;b=x;}for(t=a;t;t=t-&gt;n){x=malloc(sizeof(struct node));*x=*t;x-&gt;n=r;r=x;}for(t=b;t;t=t-&gt;n){for(x=r;x&amp;&amp;x-&gt;e!=t-&gt;e;x=x-&gt;n);if(x)x-&gt;c+=t-&gt;c;else{x=malloc(sizeof(struct node));*x=*t;x-&gt;n=r;r=x;}}for(t=r;t;t=t-&gt;n)printf(&quot;%dx^%d + &quot;,t-&gt;c,t-&gt;e);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t7-q11">
+          <h3>11. Multiply two polynomials using linked lists</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+struct node{int c,e;struct node*n;};struct node*a=NULL,*b=NULL,*r=NULL,*t,*u,*x;int n,i,c,e;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++){scanf(&quot;%d%d&quot;,&amp;c,&amp;e);x=malloc(sizeof(struct node));x-&gt;c=c;x-&gt;e=e;x-&gt;n=a;a=x;}scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++){scanf(&quot;%d%d&quot;,&amp;c,&amp;e);x=malloc(sizeof(struct node));x-&gt;c=c;x-&gt;e=e;x-&gt;n=b;b=x;}for(t=a;t;t=t-&gt;n)for(u=b;u;u=u-&gt;n){int cc=t-&gt;c*u-&gt;c,ee=t-&gt;e+u-&gt;e;for(x=r;x&amp;&amp;x-&gt;e!=ee;x=x-&gt;n);if(x)x-&gt;c+=cc;else{x=malloc(sizeof(struct node));x-&gt;c=cc;x-&gt;e=ee;x-&gt;n=r;r=x;}}for(t=r;t;t=t-&gt;n)printf(&quot;%dx^%d + &quot;,t-&gt;c,t-&gt;e);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section><p class="toplink"><a href="#top">Back to top ↑</a></p></section><section class="topic" id="topic-8"><h2>8. Trees</h2>
+        <section class="question" id="t8-q1">
+          <h3>1. Construct binary tree from preorder and inorder traversal</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int in[100],pre[100],pos=0;struct node{int d;struct node*l,*r;};struct node*build(int lo,int hi){if(lo&gt;hi)return NULL;struct node*x=malloc(sizeof(struct node));x-&gt;d=pre[pos++];int k=lo;while(k&lt;=hi&amp;&amp;in[k]!=x-&gt;d)k++;x-&gt;l=build(lo,k-1);x-&gt;r=build(k+1,hi);return x;}void post(struct node*x){if(x){post(x-&gt;l);post(x-&gt;r);printf(&quot;%d &quot;,x-&gt;d);}}
+    int n,i;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;pre[i]);for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;in[i]);struct node*root=build(0,n-1);post(root);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t8-q2">
+          <h3>2. Construct binary tree from postorder and inorder traversal</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int in[100],postv[100],pos;struct node{int d;struct node*l,*r;};struct node*build(int lo,int hi){if(lo&gt;hi)return NULL;struct node*x=malloc(sizeof(struct node));x-&gt;d=postv[pos--];int k=lo;while(k&lt;=hi&amp;&amp;in[k]!=x-&gt;d)k++;x-&gt;r=build(k+1,hi);x-&gt;l=build(lo,k-1);return x;}void pre(struct node*x){if(x){printf(&quot;%d &quot;,x-&gt;d);pre(x-&gt;l);pre(x-&gt;r);}}
+    int n,i;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;in[i]);for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;postv[i]);pos=n-1;struct node*root=build(0,n-1);pre(root);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t8-q3">
+          <h3>3. Perform level order traversal of a binary tree</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+struct node{int d;struct node*l,*r;};struct node*newn(int x){struct node*t=malloc(sizeof(struct node));t-&gt;d=x;t-&gt;l=t-&gt;r=NULL;return t;}struct node*q[100];int f=0,r=0,n,i,x;scanf(&quot;%d&quot;,&amp;n);if(n&lt;=0)return 0;scanf(&quot;%d&quot;,&amp;x);struct node*root=newn(x);q[r++]=root;while(f&lt;r&amp;&amp;r&lt;100){struct node*t=q[f++];printf(&quot;%d &quot;,t-&gt;d);scanf(&quot;%d&quot;,&amp;x);if(x!=-1){t-&gt;l=newn(x);q[r++]=t-&gt;l;}scanf(&quot;%d&quot;,&amp;x);if(x!=-1){t-&gt;r=newn(x);q[r++]=t-&gt;r;}}
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t8-q4">
+          <h3>4. Find left view of a binary tree</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+struct node{int d;struct node*l,*r;};struct node*newn(int x){struct node*t=malloc(sizeof(struct node));t-&gt;d=x;t-&gt;l=t-&gt;r=NULL;return t;}void view(struct node*x,int level,int*max){if(!x)return;if(level&gt;*max){printf(&quot;%d &quot;,x-&gt;d);*max=level;}view(x-&gt;l,level+1,max);view(x-&gt;r,level+1,max);}
+    int a,b,c;scanf(&quot;%d&quot;,&amp;a);struct node*root=newn(a);scanf(&quot;%d&quot;,&amp;b);if(b!=-1)root-&gt;l=newn(b);scanf(&quot;%d&quot;,&amp;c);if(c!=-1)root-&gt;r=newn(c);int m=0;view(root,1,&amp;m);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t8-q5">
+          <h3>5. Find right view of a binary tree</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+struct node{int d;struct node*l,*r;};struct node*newn(int x){struct node*t=malloc(sizeof(struct node));t-&gt;d=x;t-&gt;l=t-&gt;r=NULL;return t;}void view(struct node*x,int level,int*max){if(!x)return;if(level&gt;*max){printf(&quot;%d &quot;,x-&gt;d);*max=level;}view(x-&gt;r,level+1,max);view(x-&gt;l,level+1,max);}
+    int a,b,c;scanf(&quot;%d&quot;,&amp;a);struct node*root=newn(a);scanf(&quot;%d&quot;,&amp;b);if(b!=-1)root-&gt;l=newn(b);scanf(&quot;%d&quot;,&amp;c);if(c!=-1)root-&gt;r=newn(c);int m=0;view(root,1,&amp;m);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t8-q6">
+          <h3>6. Find maximum depth of a binary tree</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+struct node{int d;struct node*l,*r;};int depth(struct node*x){if(!x)return 0;int a=depth(x-&gt;l),b=depth(x-&gt;r);return 1+(a&gt;b?a:b);}int main(){struct node a={1,NULL,NULL},b={2,NULL,NULL},c={3,NULL,NULL};a.l=&amp;b;a.r=&amp;c;printf(&quot;Depth = %d&quot;,depth(&amp;a));return 0;}
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t8-q7">
+          <h3>7. Implement binary search tree using an array</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[100],n,i,x,found;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;a[i]);scanf(&quot;%d&quot;,&amp;x);found=0;for(i=0;i&lt;n;i++)if(a[i]==x)found=1;printf(found?&quot;Found&quot;:&quot;Not found&quot;);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t8-q8">
+          <h3>8. Implement dynamic binary search tree operations</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+struct node{int d;struct node*l,*r;};struct node*ins(struct node*t,int x){if(!t){t=malloc(sizeof(struct node));t-&gt;d=x;t-&gt;l=t-&gt;r=NULL;}else if(x&lt;t-&gt;d)t-&gt;l=ins(t-&gt;l,x);else if(x&gt;t-&gt;d)t-&gt;r=ins(t-&gt;r,x);return t;}void inorder(struct node*t){if(t){inorder(t-&gt;l);printf(&quot;%d &quot;,t-&gt;d);inorder(t-&gt;r);}}
+    struct node*root=NULL;int n,x,i;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++){scanf(&quot;%d&quot;,&amp;x);root=ins(root,x);}inorder(root);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t8-q9">
+          <h3>9. Find inorder predecessor and successor in a BST</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+struct node{int d;struct node*l,*r;};struct node*ins(struct node*t,int x){if(!t){t=malloc(sizeof(struct node));t-&gt;d=x;t-&gt;l=t-&gt;r=NULL;}else if(x&lt;t-&gt;d)t-&gt;l=ins(t-&gt;l,x);else t-&gt;r=ins(t-&gt;r,x);return t;}int main(){struct node*root=NULL,*t;int n,x,i,pre=-1,suc=-1;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++){scanf(&quot;%d&quot;,&amp;x);root=ins(root,x);}scanf(&quot;%d&quot;,&amp;x);t=root;while(t){if(t-&gt;d&lt;x){pre=t-&gt;d;t=t-&gt;r;}else if(t-&gt;d&gt;x){suc=t-&gt;d;t=t-&gt;l;}else break;}printf(&quot;Predecessor=%d Successor=%d&quot;,pre,suc);return 0;}
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t8-q10">
+          <h3>10. Check whether a BST contains a dead end</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+struct node{int d;struct node*l,*r;};struct node*ins(struct node*t,int x){if(!t){t=malloc(sizeof(struct node));t-&gt;d=x;t-&gt;l=t-&gt;r=NULL;}else if(x&lt;t-&gt;d)t-&gt;l=ins(t-&gt;l,x);else t-&gt;r=ins(t-&gt;r,x);return t;}int dead(struct node*t,int lo,int hi){if(!t)return 0;if(lo==hi)return 1;return dead(t-&gt;l,lo,t-&gt;d-1)||dead(t-&gt;r,t-&gt;d+1,hi);}
+    struct node*root=NULL;int n,x,i;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++){scanf(&quot;%d&quot;,&amp;x);root=ins(root,x);}printf(dead(root,1,100000)?&quot;Dead end found&quot;:&quot;No dead end&quot;);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t8-q11">
+          <h3>11. Convert binary tree to BST using an array</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[100],n,i,j,t;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;a[i]);for(i=0;i&lt;n-1;i++)for(j=0;j&lt;n-1-i;j++)if(a[j]&gt;a[j+1]){t=a[j];a[j]=a[j+1];a[j+1]=t;}printf(&quot;Sorted values for inorder BST: &quot;);for(i=0;i&lt;n;i++)printf(&quot;%d &quot;,a[i]);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t8-q12">
+          <h3>12. Find kth largest element in a BST</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[100],n,k,i,j,t;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;a[i]);scanf(&quot;%d&quot;,&amp;k);for(i=0;i&lt;n-1;i++)for(j=0;j&lt;n-1-i;j++)if(a[j]&gt;a[j+1]){t=a[j];a[j]=a[j+1];a[j+1]=t;}if(k&gt;=1&amp;&amp;k&lt;=n)printf(&quot;%d&quot;,a[n-k]);else printf(&quot;Invalid k&quot;);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t8-q13">
+          <h3>13. Find kth smallest element in a BST</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[100],n,k,i,j,t;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;a[i]);scanf(&quot;%d&quot;,&amp;k);for(i=0;i&lt;n-1;i++)for(j=0;j&lt;n-1-i;j++)if(a[j]&gt;a[j+1]){t=a[j];a[j]=a[j+1];a[j+1]=t;}if(k&gt;=1&amp;&amp;k&lt;=n)printf(&quot;%d&quot;,a[k-1]);else printf(&quot;Invalid k&quot;);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t8-q14">
+          <h3>14. Convert preorder traversal of BST to postorder</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[100],n,i;void post(int lo,int hi){if(lo&gt;=hi)return;int root=a[lo],k=lo+1;while(k&lt;=hi&amp;&amp;a[k]&lt;root)k++;post(lo+1,k-1);post(k,hi);printf(&quot;%d &quot;,root);}
+    scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;a[i]);post(0,n-1);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t8-q15">
+          <h3>15. Construct BST from preorder traversal</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[100],n,i;struct node{int d;struct node*l,*r;};struct node*ins(struct node*t,int x){if(!t){t=malloc(sizeof(struct node));t-&gt;d=x;t-&gt;l=t-&gt;r=NULL;}else if(x&lt;t-&gt;d)t-&gt;l=ins(t-&gt;l,x);else t-&gt;r=ins(t-&gt;r,x);return t;}void inorder(struct node*t){if(t){inorder(t-&gt;l);printf(&quot;%d &quot;,t-&gt;d);inorder(t-&gt;r);}}
+    struct node*root=NULL;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++){scanf(&quot;%d&quot;,&amp;a[i]);root=ins(root,a[i]);}inorder(root);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t8-q16">
+          <h3>16. Construct BST from postorder traversal</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[100],n,i;struct node{int d;struct node*l,*r;};struct node*ins(struct node*t,int x){if(!t){t=malloc(sizeof(struct node));t-&gt;d=x;t-&gt;l=t-&gt;r=NULL;}else if(x&lt;t-&gt;d)t-&gt;l=ins(t-&gt;l,x);else t-&gt;r=ins(t-&gt;r,x);return t;}void inorder(struct node*t){if(t){inorder(t-&gt;l);printf(&quot;%d &quot;,t-&gt;d);inorder(t-&gt;r);}}
+    struct node*root=NULL;scanf(&quot;%d&quot;,&amp;n);for(i=n-1;i&gt;=0;i--){scanf(&quot;%d&quot;,&amp;a[i]);}for(i=0;i&lt;n;i++)root=ins(root,a[i]);inorder(root);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t8-q17">
+          <h3>17. Check whether a binary tree is strictly complete</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int n,i,a[100],ok=1;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;a[i]);for(i=0;i&lt;n/2;i++)if(2*i+2&lt;n&amp;&amp;a[2*i+2]==-1)ok=0;printf(ok?&quot;No missing child before last level&quot;:&quot;Not complete&quot;);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t8-q18">
+          <h3>18. Check whether a binary tree is almost complete</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[100],n,i,seen=0,ok=1;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;a[i]);for(i=0;i&lt;n;i++){if(a[i]==-1)seen=1;else if(seen)ok=0;}printf(ok?&quot;Almost complete&quot;:&quot;Not almost complete&quot;);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t8-q19">
+          <h3>19. Count total nodes in a binary tree</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+struct node{int d;struct node*l,*r;};int count(struct node*t){if(!t)return 0;return 1+count(t-&gt;l)+count(t-&gt;r);}int main(){struct node a={1,NULL,NULL},b={2,NULL,NULL},c={3,NULL,NULL};a.l=&amp;b;a.r=&amp;c;printf(&quot;Nodes = %d&quot;,count(&amp;a));return 0;}
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t8-q20">
+          <h3>20. Check whether a binary tree is complete using array representation</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[100],n,i,seen=0,ok=1;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;a[i]);for(i=0;i&lt;n;i++){if(a[i]==-1)seen=1;else if(seen)ok=0;}printf(ok?&quot;Complete tree&quot;:&quot;Not complete&quot;);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section><p class="toplink"><a href="#top">Back to top ↑</a></p></section><section class="topic" id="topic-9"><h2>9. Graphs</h2>
+        <section class="question" id="t9-q1">
+          <h3>1. Represent graph using adjacency matrix</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[20][20]={0},n,m,u,v,i,j;scanf(&quot;%d%d&quot;,&amp;n,&amp;m);for(i=0;i&lt;m;i++){scanf(&quot;%d%d&quot;,&amp;u,&amp;v);a[u][v]=1;a[v][u]=1;}for(i=0;i&lt;n;i++){for(j=0;j&lt;n;j++)printf(&quot;%d &quot;,a[i][j]);printf(&quot;\n&quot;);}
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t9-q2">
+          <h3>2. Represent graph using adjacency list with insertion and deletion</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[20][20]={0},n,m,u,v,ch,i,j;scanf(&quot;%d%d&quot;,&amp;n,&amp;m);for(i=0;i&lt;m;i++){scanf(&quot;%d%d&quot;,&amp;u,&amp;v);a[u][v]=a[v][u]=1;}do{scanf(&quot;%d&quot;,&amp;ch);if(ch==1){scanf(&quot;%d%d&quot;,&amp;u,&amp;v);a[u][v]=a[v][u]=1;}else if(ch==2){scanf(&quot;%d%d&quot;,&amp;u,&amp;v);a[u][v]=a[v][u]=0;}else if(ch==3)for(i=0;i&lt;n;i++){printf(&quot;%d: &quot;,i);for(j=0;j&lt;n;j++)if(a[i][j])printf(&quot;%d &quot;,j);printf(&quot;\n&quot;);}}while(ch);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t9-q3">
+          <h3>3. Perform DFS using adjacency matrix</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[20][20],vis[20]={0},n,i,j,s,st[100],top=0,v;scanf(&quot;%d%d&quot;,&amp;n,&amp;s);for(i=0;i&lt;n;i++)for(j=0;j&lt;n;j++)scanf(&quot;%d&quot;,&amp;a[i][j]);st[top++]=s;while(top){v=st[--top];if(!vis[v]){printf(&quot;%d &quot;,v);vis[v]=1;for(i=n-1;i&gt;=0;i--)if(a[v][i]&amp;&amp;!vis[i])st[top++]=i;}}
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t9-q4">
+          <h3>4. Perform DFS using adjacency list</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[20][20],vis[20]={0},n,m,u,v,st[100],top=0,i,j,s;scanf(&quot;%d%d%d&quot;,&amp;n,&amp;m,&amp;s);for(i=0;i&lt;m;i++){scanf(&quot;%d%d&quot;,&amp;u,&amp;v);a[u][v]=a[v][u]=1;}st[top++]=s;while(top){v=st[--top];if(!vis[v]){printf(&quot;%d &quot;,v);vis[v]=1;for(i=n-1;i&gt;=0;i--)if(a[v][i]&amp;&amp;!vis[i])st[top++]=i;}}
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t9-q5">
+          <h3>5. Perform BFS using adjacency matrix</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[20][20],vis[20]={0},q[100],f=0,r=0,n,i,j,s,v;scanf(&quot;%d%d&quot;,&amp;n,&amp;s);for(i=0;i&lt;n;i++)for(j=0;j&lt;n;j++)scanf(&quot;%d&quot;,&amp;a[i][j]);q[r++]=s;vis[s]=1;while(f&lt;r){v=q[f++];printf(&quot;%d &quot;,v);for(i=0;i&lt;n;i++)if(a[v][i]&amp;&amp;!vis[i]){vis[i]=1;q[r++]=i;}}
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t9-q6">
+          <h3>6. Perform BFS using adjacency list</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[20][20]={0},vis[20]={0},q[100],f=0,r=0,n,m,u,v,i,s;scanf(&quot;%d%d%d&quot;,&amp;n,&amp;m,&amp;s);for(i=0;i&lt;m;i++){scanf(&quot;%d%d&quot;,&amp;u,&amp;v);a[u][v]=a[v][u]=1;}q[r++]=s;vis[s]=1;while(f&lt;r){v=q[f++];printf(&quot;%d &quot;,v);for(i=0;i&lt;n;i++)if(a[v][i]&amp;&amp;!vis[i]){vis[i]=1;q[r++]=i;}}
+    return 0;
+}
+</code></pre>
+          </details>
+        </section><p class="toplink"><a href="#top">Back to top ↑</a></p></section><section class="topic" id="topic-10"><h2>10. Searching Algorithms</h2>
+        <section class="question" id="t10-q1">
+          <h3>1. Perform linear search on an integer array</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[100],n,x,i;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;a[i]);scanf(&quot;%d&quot;,&amp;x);for(i=0;i&lt;n&amp;&amp;a[i]!=x;i++);if(i&lt;n)printf(&quot;Found at %d&quot;,i);else printf(&quot;Not found&quot;);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t10-q2">
+          <h3>2. Perform binary search on a sorted integer array</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[100],n,x,l=0,r,m,found=-1,i;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;a[i]);scanf(&quot;%d&quot;,&amp;x);r=n-1;while(l&lt;=r){m=(l+r)/2;if(a[m]==x){found=m;break;}else if(a[m]&lt;x)l=m+1;else r=m-1;}printf(found&gt;=0?&quot;Found at index %d&quot;:&quot;Not found&quot;,found);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t10-q3">
+          <h3>3. Perform linear search using recursion</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+int search(int a[],int n,int x,int i){ if(i==n)return -1; if(a[i]==x)return i; return search(a,n,x,i+1); }
+int main(){ int a[100],n,x,i; scanf(&quot;%d&quot;,&amp;n); for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;a[i]); scanf(&quot;%d&quot;,&amp;x); printf(&quot;%d&quot;,search(a,n,x,0)); return 0; }</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t10-q4">
+          <h3>4. Perform binary search using recursion</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+int bs(int a[],int l,int r,int x){ if(l&gt;r)return -1; int m=(l+r)/2; if(a[m]==x)return m; if(x&lt;a[m])return bs(a,l,m-1,x); return bs(a,m+1,r,x); }
+int main(){ int a[100],n,x,i; scanf(&quot;%d&quot;,&amp;n); for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;a[i]); scanf(&quot;%d&quot;,&amp;x); printf(&quot;%d&quot;,bs(a,0,n-1,x)); return 0; }</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t10-q5">
+          <h3>5. Perform linear search on a string</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char s[200],x;int i;fgets(s,200,stdin);scanf(&quot; %c&quot;,&amp;x);for(i=0;s[i]&amp;&amp;s[i]!=&#x27;\n&#x27;&amp;&amp;s[i]!=x;i++);if(s[i]==x)printf(&quot;Found at %d&quot;,i);else printf(&quot;Not found&quot;);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t10-q6">
+          <h3>6. Perform binary search on sorted characters</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+char s[200],x;int l=0,r,m;fgets(s,200,stdin);scanf(&quot; %c&quot;,&amp;x);r=strlen(s)-2;while(l&lt;=r){m=(l+r)/2;if(s[m]==x)break;else if(s[m]&lt;x)l=m+1;else r=m-1;}if(l&lt;=r)printf(&quot;Found at %d&quot;,m);else printf(&quot;Not found&quot;);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t10-q7">
+          <h3>7. Perform recursive linear search on a string</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+int find(char s[],char x,int i){ if(s[i]==0||s[i]==&#x27;\\n&#x27;)return -1; if(s[i]==x)return i; return find(s,x,i+1); }
+int main(){ char s[200],x; fgets(s,200,stdin); scanf(&quot; %c&quot;,&amp;x); printf(&quot;%d&quot;,find(s,x,0)); return 0; }</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t10-q8">
+          <h3>8. Perform recursive binary search on sorted characters</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+int bs(char s[],int l,int r,char x){ if(l&gt;r)return -1; int m=(l+r)/2; if(s[m]==x)return m; if(x&lt;s[m])return bs(s,l,m-1,x); return bs(s,m+1,r,x); }
+int main(){ char s[200],x; int n=0; fgets(s,200,stdin); while(s[n]&amp;&amp;s[n]!=&#x27;\\n&#x27;)n++; scanf(&quot; %c&quot;,&amp;x); printf(&quot;%d&quot;,bs(s,0,n-1,x)); return 0; }</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t10-q9">
+          <h3>9. Measure execution time of linear search</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[100000],n,x,i;clock_t start,end;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++)a[i]=i;scanf(&quot;%d&quot;,&amp;x);start=clock();for(i=0;i&lt;n&amp;&amp;a[i]!=x;i++);end=clock();printf(&quot;Index=%d Time=%f seconds&quot;,i&lt;n?i:-1,(double)(end-start)/CLOCKS_PER_SEC);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t10-q10">
+          <h3>10. Measure execution time of binary search</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+int a[100000],n=100000,x=99999,l=0,r=n-1,m;clock_t start,end;for(int i=0;i&lt;n;i++)a[i]=i;start=clock();while(l&lt;=r){m=(l+r)/2;if(a[m]==x)break;else if(a[m]&lt;x)l=m+1;else r=m-1;}end=clock();printf(&quot;Index=%d Time=%f seconds&quot;,m,(double)(end-start)/CLOCKS_PER_SEC);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section><p class="toplink"><a href="#top">Back to top ↑</a></p></section><section class="topic" id="topic-11"><h2>11. Sorting Algorithms</h2>
+        <section class="question" id="t11-q1">
+          <h3>1. Selection sort using iteration</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;time.h&gt;
+int main(){int a[100],n,i,j,m,t,key,sw=0;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;a[i]);clock_t st=clock();for(i=0;i&lt;n-1;i++){m=i;for(j=i+1;j&lt;n;j++)if(a[j]&lt;a[m])m=j;t=a[i];a[i]=a[m];a[m]=t;}clock_t en=clock();for(i=0;i&lt;n;i++)printf(&quot;%d &quot;,a[i]);printf(&quot;\nTime=%f seconds&quot;,(double)(en-st)/CLOCKS_PER_SEC);return 0;}</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t11-q2">
+          <h3>2. Selection sort using recursion</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+void sel(int a[],int n,int i){if(i&gt;=n-1)return;int m=i,j,t;for(j=i+1;j&lt;n;j++)if(a[j]&lt;a[m])m=j;t=a[i];a[i]=a[m];a[m]=t;sel(a,n,i+1);}
+int main(){int a[100],n,i,j,m,t,key;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;a[i]);sel(a,n,0);for(i=0;i&lt;n;i++)printf(&quot;%d &quot;,a[i]);return 0;}</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t11-q3">
+          <h3>3. Bubble sort using iteration</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;time.h&gt;
+int main(){int a[100],n,i,j,m,t,key,sw=0;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;a[i]);clock_t st=clock();for(i=0;i&lt;n-1;i++)for(j=0;j&lt;n-1-i;j++)if(a[j]&gt;a[j+1]){t=a[j];a[j]=a[j+1];a[j+1]=t;}clock_t en=clock();for(i=0;i&lt;n;i++)printf(&quot;%d &quot;,a[i]);printf(&quot;\nTime=%f seconds&quot;,(double)(en-st)/CLOCKS_PER_SEC);return 0;}</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t11-q4">
+          <h3>4. Bubble sort using recursion</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+void bub(int a[],int n){if(n&lt;=1)return;int j,t;for(j=0;j&lt;n-1;j++)if(a[j]&gt;a[j+1]){t=a[j];a[j]=a[j+1];a[j+1]=t;}bub(a,n-1);}
+int main(){int a[100],n,i,j,m,t,key;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;a[i]);bub(a,n);for(i=0;i&lt;n;i++)printf(&quot;%d &quot;,a[i]);return 0;}</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t11-q5">
+          <h3>5. Insertion sort using iteration</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;time.h&gt;
+int main(){int a[100],n,i,j,m,t,key,sw=0;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;a[i]);clock_t st=clock();for(i=1;i&lt;n;i++){key=a[i];j=i-1;while(j&gt;=0&amp;&amp;a[j]&gt;key){a[j+1]=a[j];j--;}a[j+1]=key;}clock_t en=clock();for(i=0;i&lt;n;i++)printf(&quot;%d &quot;,a[i]);printf(&quot;\nTime=%f seconds&quot;,(double)(en-st)/CLOCKS_PER_SEC);return 0;}</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t11-q6">
+          <h3>6. Insertion sort using recursion</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+void ins(int a[],int n){if(n&lt;=1)return;ins(a,n-1);int key=a[n-1],j=n-2;while(j&gt;=0&amp;&amp;a[j]&gt;key){a[j+1]=a[j];j--;}a[j+1]=key;}
+int main(){int a[100],n,i,j,m,t,key;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;a[i]);ins(a,n);for(i=0;i&lt;n;i++)printf(&quot;%d &quot;,a[i]);return 0;}</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t11-q7">
+          <h3>7. Merge sort using recursion</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+void merge(int a[],int l,int m,int r){int t[100],i=l,j=m+1,k=0;while(i&lt;=m&amp;&amp;j&lt;=r)t[k++]=a[i]&lt;a[j]?a[i++]:a[j++];while(i&lt;=m)t[k++]=a[i++];while(j&lt;=r)t[k++]=a[j++];for(i=0;i&lt;k;i++)a[l+i]=t[i];}void ms(int a[],int l,int r){if(l&lt;r){int m=(l+r)/2;ms(a,l,m);ms(a,m+1,r);merge(a,l,m,r);}}
+int main(){int a[100],n,i,j,m,t,key;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;a[i]);ms(a,0,n-1);for(i=0;i&lt;n;i++)printf(&quot;%d &quot;,a[i]);return 0;}</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t11-q8">
+          <h3>8. Quick sort using recursion</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+int part(int a[],int l,int r){int p=a[r],i=l-1,j,t;for(j=l;j&lt;r;j++)if(a[j]&lt;=p){t=a[++i];a[i]=a[j];a[j]=t;}t=a[i+1];a[i+1]=a[r];a[r]=t;return i+1;}void qs(int a[],int l,int r){if(l&lt;r){int p=part(a,l,r);qs(a,l,p-1);qs(a,p+1,r);}}
+int main(){int a[100],n,i,j,m,t,key;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;a[i]);qs(a,0,n-1);for(i=0;i&lt;n;i++)printf(&quot;%d &quot;,a[i]);return 0;}</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t11-q9">
+          <h3>9. Selection sort on strings</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+int main(){char a[100][40],t[40],key[40];int n,i,j,m;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++)scanf(&quot;%39s&quot;,a[i]);for(i=0;i&lt;n-1;i++){m=i;for(j=i+1;j&lt;n;j++)if(strcmp(a[j],a[m])&lt;0)m=j;strcpy(t,a[i]);strcpy(a[i],a[m]);strcpy(a[m],t);}for(i=0;i&lt;n;i++)printf(&quot;%s &quot;,a[i]);return 0;}</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t11-q10">
+          <h3>10. Bubble sort on strings</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+int main(){char a[100][40],t[40],key[40];int n,i,j,m;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++)scanf(&quot;%39s&quot;,a[i]);for(i=0;i&lt;n-1;i++)for(j=0;j&lt;n-1-i;j++)if(strcmp(a[j],a[j+1])&gt;0){strcpy(t,a[j]);strcpy(a[j],a[j+1]);strcpy(a[j+1],t);}for(i=0;i&lt;n;i++)printf(&quot;%s &quot;,a[i]);return 0;}</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t11-q11">
+          <h3>11. Insertion sort on strings</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+int main(){char a[100][40],t[40],key[40];int n,i,j,m;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++)scanf(&quot;%39s&quot;,a[i]);for(i=1;i&lt;n;i++){strcpy(key,a[i]);j=i-1;while(j&gt;=0&amp;&amp;strcmp(a[j],key)&gt;0){strcpy(a[j+1],a[j]);j--;}strcpy(a[j+1],key);}for(i=0;i&lt;n;i++)printf(&quot;%s &quot;,a[i]);return 0;}</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t11-q12">
+          <h3>12. Merge sort on strings</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+void merge(char a[][40],int l,int m,int r){char t[100][40];int i=l,j=m+1,k=0;while(i&lt;=m&amp;&amp;j&lt;=r)strcpy(t[k++],strcmp(a[i],a[j])&lt;0?a[i++]:a[j++]);while(i&lt;=m)strcpy(t[k++],a[i++]);while(j&lt;=r)strcpy(t[k++],a[j++]);for(i=0;i&lt;k;i++)strcpy(a[l+i],t[i]);}void ms(char a[][40],int l,int r){if(l&lt;r){int m=(l+r)/2;ms(a,l,m);ms(a,m+1,r);merge(a,l,m,r);}}
+int main(){char a[100][40],t[40],key[40];int n,i,j,m;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++)scanf(&quot;%39s&quot;,a[i]);ms(a,0,n-1);for(i=0;i&lt;n;i++)printf(&quot;%s &quot;,a[i]);return 0;}</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t11-q13">
+          <h3>13. Quick sort on strings</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+int part(char a[][40],int l,int r){char p[40],t[40];strcpy(p,a[r]);int i=l-1,j;for(j=l;j&lt;r;j++)if(strcmp(a[j],p)&lt;=0){i++;strcpy(t,a[i]);strcpy(a[i],a[j]);strcpy(a[j],t);}strcpy(t,a[i+1]);strcpy(a[i+1],a[r]);strcpy(a[r],t);return i+1;}void qs(char a[][40],int l,int r){if(l&lt;r){int p=part(a,l,r);qs(a,l,p-1);qs(a,p+1,r);}}
+int main(){char a[100][40],t[40],key[40];int n,i,j,m;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++)scanf(&quot;%39s&quot;,a[i]);qs(a,0,n-1);for(i=0;i&lt;n;i++)printf(&quot;%s &quot;,a[i]);return 0;}</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t11-q14">
+          <h3>14. Compare best and worst case of selection sort</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;time.h&gt;
+int main(){int a[100],n,i,j,m,t,key,sw=0;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;a[i]);clock_t st=clock();/* Selection sort always makes n(n-1)/2 comparisons. Best and worst time: O(n^2). */ for(i=0;i&lt;n-1;i++){m=i;for(j=i+1;j&lt;n;j++)if(a[j]&lt;a[m])m=j;t=a[i];a[i]=a[m];a[m]=t;}clock_t en=clock();for(i=0;i&lt;n;i++)printf(&quot;%d &quot;,a[i]);printf(&quot;\nTime=%f seconds&quot;,(double)(en-st)/CLOCKS_PER_SEC);return 0;}</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t11-q15">
+          <h3>15. Compare best and worst case of bubble sort</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;time.h&gt;
+int main(){int a[100],n,i,j,m,t,key,sw=0;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;a[i]);clock_t st=clock();/* Optimized bubble sort: best O(n), worst O(n^2). */ for(i=0;i&lt;n-1;i++){sw=0;for(j=0;j&lt;n-1-i;j++)if(a[j]&gt;a[j+1]){t=a[j];a[j]=a[j+1];a[j+1]=t;sw=1;}if(!sw)break;}clock_t en=clock();for(i=0;i&lt;n;i++)printf(&quot;%d &quot;,a[i]);printf(&quot;\nTime=%f seconds&quot;,(double)(en-st)/CLOCKS_PER_SEC);return 0;}</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t11-q16">
+          <h3>16. Compare best and worst case of insertion sort</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;time.h&gt;
+int main(){int a[100],n,i,j,m,t,key,sw=0;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;a[i]);clock_t st=clock();/* Insertion sort: best O(n), worst O(n^2). */ for(i=1;i&lt;n;i++){key=a[i];j=i-1;while(j&gt;=0&amp;&amp;a[j]&gt;key){a[j+1]=a[j];j--;}a[j+1]=key;}clock_t en=clock();for(i=0;i&lt;n;i++)printf(&quot;%d &quot;,a[i]);printf(&quot;\nTime=%f seconds&quot;,(double)(en-st)/CLOCKS_PER_SEC);return 0;}</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t11-q17">
+          <h3>17. Measure merge sort execution time</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;time.h&gt;
+int main(){int a[100],n,i,j,m,t,key,sw=0;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;a[i]);clock_t st=clock();ms(a,0,n-1);clock_t en=clock();for(i=0;i&lt;n;i++)printf(&quot;%d &quot;,a[i]);printf(&quot;\nTime=%f seconds&quot;,(double)(en-st)/CLOCKS_PER_SEC);return 0;}</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t11-q18">
+          <h3>18. Measure quick sort execution time</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;time.h&gt;
+int main(){int a[100],n,i,j,m,t,key,sw=0;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;a[i]);clock_t st=clock();qs(a,0,n-1);clock_t en=clock();for(i=0;i&lt;n;i++)printf(&quot;%d &quot;,a[i]);printf(&quot;\nTime=%f seconds&quot;,(double)(en-st)/CLOCKS_PER_SEC);return 0;}</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t11-q19">
+          <h3>19. Measure sorting execution time and display complexity</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;time.h&gt;
+int main(){int a[100],n,i,j,m,t,key,sw=0;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;a[i]);clock_t st=clock();for(i=0;i&lt;n-1;i++)for(j=0;j&lt;n-1-i;j++)if(a[j]&gt;a[j+1]){t=a[j];a[j]=a[j+1];a[j+1]=t;} /* Bubble sort worst O(n^2), best O(n^2) without early-stop flag. */clock_t en=clock();for(i=0;i&lt;n;i++)printf(&quot;%d &quot;,a[i]);printf(&quot;\nTime=%f seconds&quot;,(double)(en-st)/CLOCKS_PER_SEC);return 0;}</code></pre>
+          </details>
+        </section>
+        <section class="question" id="t11-q20">
+          <h3>20. Compare best and worst case of quick sort</h3>
+          <details>
+            <summary>View C Solution</summary>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+/* Quick sort average and best case: O(n log n); worst case: O(n^2). */int a[100],n,i,j,t,p;scanf(&quot;%d&quot;,&amp;n);for(i=0;i&lt;n;i++)scanf(&quot;%d&quot;,&amp;a[i]);for(i=0;i&lt;n-1;i++){p=i;for(j=i+1;j&lt;n;j++)if(a[j]&lt;a[p])p=j;t=a[i];a[i]=a[p];a[p]=t;}for(i=0;i&lt;n;i++)printf(&quot;%d &quot;,a[i]);printf(&quot;\nQuick sort complexity: Best O(n log n), Worst O(n^2)&quot;);
+    return 0;
+}
+</code></pre>
+          </details>
+        </section><p class="toplink"><a href="#top">Back to top ↑</a></p></section>
+<footer><hr><p style="text-align:center">Data Structures Using C | BCA-II (3rd Sem)</p></footer>
+</body></html>
