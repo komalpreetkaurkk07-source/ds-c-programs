@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Backend Web Development | Practical File</title>
+<style>
+:root{--pink:#ed78b8;--pink2:#ffe3f1;--purple:#8054bd;--purple2:#eee5ff;--ink:#382747;--muted:#6d6076;--white:#fff}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(135deg,#fff2f8,#f4edff);color:var(--ink);line-height:1.65}
+header{background:linear-gradient(120deg,#e987bd,#9872d5);color:white;padding:38px 18px;text-align:center}
+header h1{font-size:clamp(27px,5vw,42px);margin:0 0 8px}
+header p{margin:5px auto;max-width:760px}
+.meta{font-size:14px;opacity:.97}
+.wrap{max-width:1100px;margin:24px auto;padding:0 16px}
+.intro,.unit,.topic-card{background:white;border-radius:16px;box-shadow:0 5px 18px #6d43841a}
+.intro{padding:24px;margin-bottom:22px;border-left:6px solid var(--pink)}
+h2{color:#7546a9;margin-top:0}
+h3{color:#a34786;margin:18px 0 8px}
+.unit{margin:16px 0;overflow:hidden;border:1px solid #eadcf7}
+.unit-toggle{width:100%;border:0;background:linear-gradient(90deg,#f8d9eb,#e8dcff);padding:18px 20px;text-align:left;font-size:19px;font-weight:bold;color:#553477;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.unit-toggle:hover{background:linear-gradient(90deg,#f4c8e2,#d9c8fb)}
+.unit-content{display:none;padding:22px}
+.unit.open .unit-content{display:block}
+.unit.open .arrow{transform:rotate(180deg)}
+.arrow{transition:.2s}
+.topic-card{padding:16px 18px;margin:14px 0;border:1px solid #f0e5f7;box-shadow:none}
+p{margin:7px 0 12px}
+ul,ol{padding-left:24px}
+table{width:100%;border-collapse:collapse;margin:12px 0}
+th,td{border:1px solid #e8d9f0;padding:9px;text-align:left}
+th{background:#f7eafa}
+pre{background:#292337;color:#f8efff;padding:16px;border-radius:10px;overflow:auto;font-size:13px;line-height:1.55;white-space:pre}
+.output{background:#f5efff;border-left:4px solid var(--purple);padding:10px 14px;border-radius:7px;margin:9px 0 14px}
+.note{background:#fff3fa;border-left:4px solid var(--pink);padding:10px 14px;border-radius:7px}
+.nav{display:flex;flex-wrap:wrap;gap:9px;margin:18px 0}
+.nav a,.toplink{display:inline-block;text-decoration:none;background:#8757b9;color:white;padding:9px 15px;border-radius:22px;font-weight:bold;font-size:14px}
+.nav a:hover,.toplink:hover{background:#d45c9c}
+.small{color:var(--muted);font-size:14px}
+footer{text-align:center;padding:25px;color:#766681}
+button.copy{border:0;border-radius:7px;padding:7px 12px;background:#e8dcff;color:#57347e;cursor:pointer;font-weight:bold;margin:5px 0}
+@media(max-width:600px){.unit-content{padding:14px}.unit-toggle{font-size:17px}pre{font-size:12px}}
+</style>
+</head>
+<body>
+<header id="top">
+  <h1>Backend Web Development</h1>
+  <p>Practical File & Learning Notes</p>
+  <p class="meta">Paper Code: CSA-SEC-103/203/303 &nbsp; | &nbsp; Practical Course</p>
+</header>
+<main class="wrap">
+<section class="intro">
+<h2>Introduction to Backend Web Development</h2>
+<p>Backend web development is the part of website development that works behind the scenes. It manages the server, application logic, databases and the processing of information received from users. When a user submits a form, logs in to a website or searches for information, the backend receives the request, processes it and sends a suitable response.</p>
+<p>This subject introduces internet technologies and server-side programming. It explains how HTML forms communicate with PHP, how PHP handles data and how MySQL stores and retrieves information. HTML is used to create the structure of web pages, PHP is used for server-side processing and MySQL is used to manage data.</p>
+<div class="note"><b>Course objective:</b> To understand the basic concepts and techniques of server-side web programming and develop interactive, dynamic websites using HTML, PHP and MySQL.</div>
+<div class="nav">
+<a href="#unit1">Unit I</a><a href="#unit2">Unit II</a><a href="#unit3">Unit III</a><a href="#unit4">Unit IV</a>
+</div>
+<p class="small">Select any unit below to expand its notes, subtopics and example programs.</p>
+</section>
+
+<section class="unit open" id="unit1">
+<button class="unit-toggle" onclick="toggleUnit(this)">UNIT I – Introduction to Internet Technologies <span class="arrow">⌄</span></button>
+<div class="unit-content">
+<div class="topic-card">
+<h3>1. Internet</h3>
+<p>The Internet is a worldwide network of interconnected computers and devices. It allows users to communicate, share information, access websites, send emails and use online services. Devices communicate through standard rules called protocols.</p>
+<h3>2. Internet Protocols</h3>
+<p>A protocol is a set of rules that defines how data is transmitted between devices over a network.</p>
+<ul><li><b>TCP (Transmission Control Protocol):</b> Breaks data into packets and helps ensure that they reach the destination correctly and in order.</li><li><b>IP (Internet Protocol):</b> Provides addressing and routing so packets can travel from a source device to a destination device.</li><li><b>HTTP (Hypertext Transfer Protocol):</b> Transfers web pages and other resources between a browser and a web server.</li><li><b>HTTPS:</b> Secure version of HTTP that encrypts communication using TLS.</li><li><b>DNS (Domain Name System):</b> Converts human-readable domain names, such as example.com, into IP addresses.</li><li><b>SMTP (Simple Mail Transfer Protocol):</b> Used to send email between mail clients and mail servers or between mail servers.</li></ul>
+<h3>3. IP Addressing</h3>
+<p>An IP address is a numerical address assigned to a device on an IP network. It helps identify the device and route data to it.</p>
+<ul><li><b>IPv4:</b> Uses 32 bits and is commonly written as four numbers separated by dots, for example 192.168.1.10.</li><li><b>IPv6:</b> Uses 128 bits and is written in hexadecimal groups, for example 2001:db8::1.</li><li><b>Public IP:</b> Used to identify a network on the public internet.</li><li><b>Private IP:</b> Used inside local networks, such as a home or college network.</li></ul>
+<h3>4. Domain Name System (DNS)</h3>
+<p>People find websites using domain names, while computers communicate using IP addresses. DNS works like an internet directory: it looks up the IP address associated with a domain name. A DNS lookup normally happens before a browser connects to a website.</p>
+<h3>5. Hypertext Markup Language (HTML)</h3>
+<p>HTML is the standard markup language used to structure web pages. Elements are written using tags. Common elements include headings, paragraphs, links, images, lists, tables and forms.</p>
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;My First Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Welcome to My Website&lt;/h1&gt;
+  &lt;p&gt;This is a simple HTML page.&lt;/p&gt;
+  &lt;a href="https://example.com"&gt;Visit Example&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+<div class="output"><b>Output:</b><br>A page displaying the heading “Welcome to My Website”, a paragraph and a clickable “Visit Example” link.</div>
+<h3>6. JavaScript Programming Fundamentals</h3>
+<p>JavaScript is a programming language commonly used in browsers to make web pages interactive. It can respond to clicks, validate form fields, update page content and perform calculations.</p>
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+  &lt;h3&gt;JavaScript Example&lt;/h3&gt;
+  &lt;button onclick="showMessage()"&gt;Click Me&lt;/button&gt;
+  &lt;p id="result"&gt;&lt;/p&gt;
+  &lt;script&gt;
+    function showMessage() {
+      document.getElementById("result").innerHTML =
+        "Hello! Welcome to JavaScript.";
+    }
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+<div class="output"><b>Output:</b> Clicking the button displays “Hello! Welcome to JavaScript.”</div>
+<h3>7. Frontend Scripting vs Server-side Scripting</h3>
+<table><tr><th>Frontend scripting</th><th>Server-side scripting</th></tr><tr><td>Runs mainly in the user's browser.</td><td>Runs on the web server.</td></tr><tr><td>Used for page interaction and interface behaviour.</td><td>Used for business logic, authentication and database operations.</td></tr><tr><td>Example: JavaScript.</td><td>Examples: PHP, Python, Node.js.</td></tr><tr><td>Code is generally delivered to the browser.</td><td>Source code is processed on the server; the browser receives the response.</td></tr></table>
+<div class="topic-card"><h3>Example: Simple HTML form</h3>
+<pre>&lt;form action="welcome.php" method="post"&gt;
+  Name: &lt;input type="text" name="student_name"&gt;
+  &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;</pre>
+<p><b>Explanation:</b> The form collects a name and sends it to the PHP file named welcome.php using the POST method.</p></div>
+</div>
+</section>
+
+<section class="unit" id="unit2">
+<button class="unit-toggle" onclick="toggleUnit(this)">UNIT II – Introduction to PHP and String Handling <span class="arrow">⌄</span></button>
+<div class="unit-content">
+<div class="topic-card">
+<h3>1. Introduction to PHP</h3>
+<p>PHP stands for PHP: Hypertext Preprocessor. It is a server-side scripting language used to create dynamic web pages. PHP code is executed on the server, and the resulting HTML is sent to the browser. PHP files generally use the .php extension.</p>
+<h3>2. Basic PHP Syntax</h3>
+<p>PHP code is written between <code>&lt;?php</code> and <code>?&gt;</code> tags. Statements usually end with a semicolon.</p>
+<pre>&lt;?php
+echo "Hello, World!";
+?&gt;</pre>
+<div class="output"><b>Output:</b> Hello, World!</div>
+<h3>3. Defining Variables and Constants</h3>
+<p>A variable stores a value that can change during program execution. In PHP, a variable begins with the $ sign. A constant stores a value that cannot be changed after it is defined.</p>
+<pre>&lt;?php
+$name = "Komal";
+$age = 19;
+define("COLLEGE", "My College");
+
+echo $name;
+echo "&lt;br&gt;";
+echo $age;
+echo "&lt;br&gt;";
+echo COLLEGE;
+?&gt;</pre>
+<div class="output"><b>Output:</b><br>Komal<br>19<br>My College</div>
+<h3>4. PHP Data Types</h3>
+<ul><li><b>String:</b> Text, such as "Hello".</li><li><b>Integer:</b> Whole numbers, such as 25.</li><li><b>Float:</b> Decimal numbers, such as 12.5.</li><li><b>Boolean:</b> Either true or false.</li><li><b>Array:</b> Stores multiple values in one variable.</li><li><b>NULL:</b> Represents a variable with no value.</li><li><b>Object:</b> An instance of a class.</li></ul>
+<pre>&lt;?php
+$name = "Aman";
+$marks = 85;
+$percentage = 85.5;
+$passed = true;
+
+var_dump($name);
+echo "&lt;br&gt;";
+var_dump($marks);
+echo "&lt;br&gt;";
+var_dump($percentage);
+echo "&lt;br&gt;";
+var_dump($passed);
+?&gt;</pre>
+<div class="output"><b>Output:</b> Displays each variable's data type and value.</div>
+<h3>5. Operators and Expressions</h3>
+<p>Operators perform operations on values. An expression is a combination of values, variables and operators that produces a result.</p>
+<table><tr><th>Operator type</th><th>Examples</th><th>Purpose</th></tr><tr><td>Arithmetic</td><td>+ - * / %</td><td>Mathematical operations</td></tr><tr><td>Assignment</td><td>= += -=</td><td>Assign values</td></tr><tr><td>Comparison</td><td>== === != &gt; &lt;</td><td>Compare values</td></tr><tr><td>Logical</td><td>&amp;&amp; || !</td><td>Combine conditions</td></tr><tr><td>Increment/decrement</td><td>++ --</td><td>Increase or decrease by one</td></tr></table>
+<pre>&lt;?php
+$a = 10;
+$b = 5;
+echo "Addition = " . ($a + $b) . "&lt;br&gt;";
+echo "Subtraction = " . ($a - $b) . "&lt;br&gt;";
+echo "Multiplication = " . ($a * $b);
+?&gt;</pre>
+<div class="output"><b>Output:</b><br>Addition = 15<br>Subtraction = 5<br>Multiplication = 50</div>
+<h3>6. Decision-making Statements</h3>
+<p>Decision-making statements execute different blocks of code depending on whether a condition is true or false. PHP supports if, if-else, if-elseif-else and switch.</p>
+<pre>&lt;?php
+$marks = 72;
+if ($marks &gt;= 40) {
+    echo "Pass";
+} else {
+    echo "Fail";
+}
+?&gt;</pre>
+<div class="output"><b>Output:</b> Pass</div>
+<h3>7. Looping Constructs</h3>
+<p>Loops repeat a block of code. PHP provides for, while, do-while and foreach loops.</p>
+<pre>&lt;?php
+for ($i = 1; $i &lt;= 5; $i++) {
+    echo $i . "&lt;br&gt;";
+}
+?&gt;</pre>
+<div class="output"><b>Output:</b><br>1<br>2<br>3<br>4<br>5</div>
+<h3>8. Mixing PHP with HTML</h3>
+<p>PHP can be placed inside an HTML document. This is useful for displaying dynamic information in a web page.</p>
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+  &lt;h2&gt;Student Details&lt;/h2&gt;
+  &lt;?php
+    $student = "Riya";
+    echo "&lt;p&gt;Welcome, " . htmlspecialchars($student) . "!&lt;/p&gt;";
+  ?&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+<div class="output"><b>Output:</b> Student Details, followed by “Welcome, Riya!”</div>
+</div>
+<div class="topic-card">
+<h3>9. String Handling</h3>
+<p>A string is a sequence of characters. PHP provides many built-in functions to create, examine, search, replace and format strings.</p>
+<h3>Creating a String and Accessing its Content</h3>
+<pre>&lt;?php
+$text = "Backend";
+echo $text;
+echo "&lt;br&gt;";
+echo $text[0];
+?&gt;</pre>
+<div class="output"><b>Output:</b><br>Backend<br>B</div>
+<h3>Searching and Replacing String Content</h3>
+<pre>&lt;?php
+$text = "I like HTML";
+echo str_replace("HTML", "PHP", $text);
+?&gt;</pre>
+<div class="output"><b>Output:</b> I like PHP</div>
+<h3>Formatting a String</h3>
+<pre>&lt;?php
+$name = "Aman";
+$marks = 90;
+echo sprintf("%s scored %d marks.", $name, $marks);
+?&gt;</pre>
+<div class="output"><b>Output:</b> Aman scored 90 marks.</div>
+<h3>Important Built-in String Functions</h3>
+<table><tr><th>Function</th><th>Use</th><th>Example result</th></tr><tr><td>strlen()</td><td>Returns string length</td><td>strlen("PHP") = 3</td></tr><tr><td>str_word_count()</td><td>Counts words</td><td>str_word_count("Hello World") = 2</td></tr><tr><td>strtoupper()</td><td>Converts to uppercase</td><td>"php" → "PHP"</td></tr><tr><td>strtolower()</td><td>Converts to lowercase</td><td>"PHP" → "php"</td></tr><tr><td>ucfirst()</td><td>Capitalizes first character</td><td>"hello" → "Hello"</td></tr><tr><td>trim()</td><td>Removes whitespace at ends</td><td>trim(" hi ") → "hi"</td></tr><tr><td>strpos()</td><td>Finds position of text</td><td>Position of a substring</td></tr><tr><td>substr()</td><td>Returns part of a string</td><td>substr("Backend",0,4) = "Back"</td></tr></table>
+<pre>&lt;?php
+$text = "  hello php  ";
+echo strtoupper(trim($text));
+?&gt;</pre>
+<div class="output"><b>Output:</b> HELLO PHP</div>
+</div>
+</div>
+</section>
+
+<section class="unit" id="unit3">
+<button class="unit-toggle" onclick="toggleUnit(this)">UNIT III – Handling HTML Forms with PHP <span class="arrow">⌄</span></button>
+<div class="unit-content">
+<div class="topic-card">
+<h3>1. HTML Forms</h3>
+<p>An HTML form is used to collect information from a user. It can contain text boxes, password fields, radio buttons, checkboxes, drop-down lists and submit buttons. The action attribute specifies the file that receives the form data, while the method attribute specifies how data is sent.</p>
+<pre>&lt;form action="process.php" method="post"&gt;
+  Name: &lt;input type="text" name="name" required&gt;
+  &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;</pre>
+<h3>2. Submitting Data to the Server Using GET</h3>
+<p>The GET method sends form data as part of the URL query string. It is suitable for searches and requests where the data does not need to be private. It should not be used for passwords or sensitive information.</p>
+<pre>&lt;!-- search.html --&gt;
+&lt;form action="get-result.php" method="get"&gt;
+  Search: &lt;input type="text" name="keyword"&gt;
+  &lt;input type="submit" value="Search"&gt;
+&lt;/form&gt;
+
+&lt;!-- get-result.php --&gt;
+&lt;?php
+if (isset($_GET["keyword"])) {
+    $keyword = htmlspecialchars($_GET["keyword"]);
+    echo "You searched for: " . $keyword;
+}
+?&gt;</pre>
+<div class="output"><b>Example output:</b> If the user enters PHP, the result page displays “You searched for: PHP”.</div>
+<h3>3. Submitting Data to the Server Using POST</h3>
+<p>The POST method sends form data in the HTTP request body rather than displaying it in the URL. It is commonly used for registration and login forms. HTTPS should be used to protect data in transit; POST by itself does not encrypt information.</p>
+<pre>&lt;!-- post-form.html --&gt;
+&lt;form action="post-result.php" method="post"&gt;
+  Name: &lt;input type="text" name="name" required&gt;
+  &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;
+
+&lt;!-- post-result.php --&gt;
+&lt;?php
+if (isset($_POST["name"])) {
+    $name = htmlspecialchars($_POST["name"]);
+    echo "Welcome, " . $name;
+}
+?&gt;</pre>
+<div class="output"><b>Example output:</b> Welcome, Aman</div>
+<h3>4. Difference Between GET and POST</h3>
+<table><tr><th>GET</th><th>POST</th></tr><tr><td>Data is included in the URL.</td><td>Data is sent in the request body.</td></tr><tr><td>Useful for searches and retrieving information.</td><td>Useful for submitting or changing information.</td></tr><tr><td>Can be bookmarked with its query string.</td><td>Form submission is not normally bookmarked as a URL.</td></tr><tr><td>Not suitable for sensitive data.</td><td>Still requires HTTPS for secure transmission.</td></tr></table>
+<h3>5. Student Registration Form</h3>
+<p>This example collects a student's name, email and course. The PHP page checks that the required values are present and displays them safely.</p>
+<pre>&lt;!-- registration.html --&gt;
+&lt;form action="register.php" method="post"&gt;
+  Name: &lt;input type="text" name="name" required&gt;&lt;br&gt;
+  Email: &lt;input type="email" name="email" required&gt;&lt;br&gt;
+  Course: &lt;input type="text" name="course" required&gt;&lt;br&gt;
+  &lt;input type="submit" value="Register"&gt;
+&lt;/form&gt;
+
+&lt;!-- register.php --&gt;
+&lt;?php
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $name = trim($_POST["name"] ?? "");
+    $email = trim($_POST["email"] ?? "");
+    $course = trim($_POST["course"] ?? "");
+
+    if ($name === "" || !filter_var($email, FILTER_VALIDATE_EMAIL)
+        || $course === "") {
+        echo "Please enter valid details.";
+    } else {
+        echo "Registration details received.&lt;br&gt;";
+        echo "Name: " . htmlspecialchars($name) . "&lt;br&gt;";
+        echo "Email: " . htmlspecialchars($email) . "&lt;br&gt;";
+        echo "Course: " . htmlspecialchars($course);
+    }
+}
+?&gt;</pre>
+<div class="output"><b>Example output:</b><br>Registration details received.<br>Name: Aman<br>Email: aman@example.com<br>Course: BCA</div>
+<h3>6. Login Form Using Server-side Validation</h3>
+<p>A login form accepts a username and password. Server-side validation checks the submitted values on the server. This classroom example demonstrates validation only; a real login system must verify a password hash stored in a database and use secure session handling.</p>
+<pre>&lt;!-- login.html --&gt;
+&lt;form action="login.php" method="post"&gt;
+  Username: &lt;input type="text" name="username" required&gt;&lt;br&gt;
+  Password: &lt;input type="password" name="password" required&gt;&lt;br&gt;
+  &lt;input type="submit" value="Login"&gt;
+&lt;/form&gt;
+
+&lt;!-- login.php: simple demonstration only --&gt;
+&lt;?php
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $username = trim($_POST["username"] ?? "");
+    $password = $_POST["password"] ?? "";
+
+    if ($username === "" || $password === "") {
+        echo "Both fields are required.";
+    } else {
+        echo "Form data received. Add database-based password verification here.";
+    }
+}
+?&gt;</pre>
+<div class="output"><b>Example output:</b> Form data received. Add database-based password verification here.</div>
+<h3>7. Server-side Validation</h3>
+<p>Server-side validation means checking submitted data using code running on the server before accepting or storing it. It is important because browser-side validation can be bypassed.</p>
+<ul><li>Check that required fields are not empty.</li><li>Validate email addresses using filter_var().</li><li>Check that numeric values are within an acceptable range.</li><li>Use htmlspecialchars() when displaying user-provided text in HTML.</li><li>Use prepared statements when inserting user data into a database.</li></ul>
+<pre>&lt;?php
+$email = $_POST["email"] ?? "";
+if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    echo "Valid email address";
+} else {
+    echo "Invalid email address";
+}
+?&gt;</pre>
+<div class="output"><b>Output:</b> Displays “Valid email address” for a correctly formatted email, otherwise “Invalid email address”.</div>
+</div>
+</div>
+</section>
+
+<section class="unit" id="unit4">
+<button class="unit-toggle" onclick="toggleUnit(this)">UNIT IV – Database Connectivity with MySQL <span class="arrow">⌄</span></button>
+<div class="unit-content">
+<div class="topic-card">
+<h3>1. Introduction to MySQL</h3>
+<p>MySQL is a relational database management system (RDBMS). It stores information in tables made up of rows and columns. PHP can connect to MySQL to create databases, insert records, retrieve information and update or delete data.</p>
+<h3>2. Database Connectivity with PHP</h3>
+<p>PHP can connect to MySQL using MySQLi or PDO. The following example uses MySQLi. Replace the sample username and password with the database credentials configured on your computer.</p>
+<pre>&lt;?php
+$connection = new mysqli("localhost", "root", "", "college");
+
+if ($connection-&gt;connect_error) {
+    die("Connection failed: " . $connection-&gt;connect_error);
+}
+echo "Database connected successfully";
+$connection-&gt;close();
+?&gt;</pre>
+<div class="output"><b>Output:</b> Database connected successfully (when the server and database credentials are correct).</div>
+<h3>3. Database Creation</h3>
+<p>A database is a structured collection of related information. The CREATE DATABASE statement creates a new database.</p>
+<pre>CREATE DATABASE college;</pre>
+<div class="output"><b>Result:</b> A database named college is created.</div>
+<h3>4. Creating Tables</h3>
+<p>A table stores data in rows and columns. Each column has a name and data type. A primary key uniquely identifies each row.</p>
+<pre>USE college;
+
+CREATE TABLE students (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(120) NOT NULL,
+    course VARCHAR(50)
+);</pre>
+<div class="output"><b>Result:</b> A table named students is created with id, name, email and course columns.</div>
+<h3>5. Insertion of Data</h3>
+<p>The INSERT statement adds new records to a table. In PHP, prepared statements should be used to safely pass user input to SQL queries.</p>
+<pre>&lt;?php
+$conn = new mysqli("localhost", "root", "", "college");
+if ($conn-&gt;connect_error) {
+    die("Connection failed");
+}
+
+$name = "Aman";
+$email = "aman@example.com";
+$course = "BCA";
+
+$stmt = $conn-&gt;prepare(
+    "INSERT INTO students (name, email, course) VALUES (?, ?, ?)"
+);
+$stmt-&gt;bind_param("sss", $name, $email, $course);
+
+if ($stmt-&gt;execute()) {
+    echo "Record inserted successfully";
+} else {
+    echo "Error inserting record";
+}
+$stmt-&gt;close();
+$conn-&gt;close();
+?&gt;</pre>
+<div class="output"><b>Output:</b> Record inserted successfully (if the insertion succeeds).</div>
+<h3>6. Retrieval of Data</h3>
+<p>The SELECT statement retrieves records from a table. The following example displays all student records.</p>
+<pre>&lt;?php
+$conn = new mysqli("localhost", "root", "", "college");
+if ($conn-&gt;connect_error) {
+    die("Connection failed");
+}
+
+$result = $conn-&gt;query("SELECT id, name, email, course FROM students");
+
+if ($result) {
+    while ($row = $result-&gt;fetch_assoc()) {
+        echo htmlspecialchars($row["name"]) . " - ";
+        echo htmlspecialchars($row["email"]) . "&lt;br&gt;";
+    }
+}
+$conn-&gt;close();
+?&gt;</pre>
+<div class="output"><b>Example output:</b><br>Aman - aman@example.com<br>(The actual output depends on the records stored in the database.)</div>
+<h3>7. Data Manipulation</h3>
+<p>Data manipulation means adding, viewing, changing and removing records. The main SQL commands are INSERT, SELECT, UPDATE and DELETE.</p>
+<table><tr><th>Command</th><th>Purpose</th><th>Example</th></tr><tr><td>INSERT</td><td>Add a new record</td><td>INSERT INTO students (name) VALUES ('Riya');</td></tr><tr><td>SELECT</td><td>Retrieve records</td><td>SELECT * FROM students;</td></tr><tr><td>UPDATE</td><td>Modify existing records</td><td>UPDATE students SET course='BCA' WHERE id=1;</td></tr><tr><td>DELETE</td><td>Remove records</td><td>DELETE FROM students WHERE id=1;</td></tr></table>
+<h3>8. Updating a Record Using PHP</h3>
+<pre>&lt;?php
+$conn = new mysqli("localhost", "root", "", "college");
+if ($conn-&gt;connect_error) {
+    die("Connection failed");
+}
+
+$id = 1;
+$newCourse = "BCA";
+
+$stmt = $conn-&gt;prepare("UPDATE students SET course = ? WHERE id = ?");
+$stmt-&gt;bind_param("si", $newCourse, $id);
+
+if ($stmt-&gt;execute()) {
+    echo "Record updated successfully";
+}
+$stmt-&gt;close();
+$conn-&gt;close();
+?&gt;</pre>
+<div class="output"><b>Output:</b> Record updated successfully (if the query executes successfully).</div>
+<h3>9. Deleting a Record Using PHP</h3>
+<pre>&lt;?php
+$conn = new mysqli("localhost", "root", "", "college");
+if ($conn-&gt;connect_error) {
+    die("Connection failed");
+}
+
+$id = 1;
+$stmt = $conn-&gt;prepare("DELETE FROM students WHERE id = ?");
+$stmt-&gt;bind_param("i", $id);
+
+if ($stmt-&gt;execute()) {
+    echo "Record deleted successfully";
+}
+$stmt-&gt;close();
+$conn-&gt;close();
+?&gt;</pre>
+<div class="output"><b>Output:</b> Record deleted successfully (if a matching record is deleted).</div>
+<div class="note"><b>Practical note:</b> Run PHP programs through a local server such as XAMPP or another PHP development environment. MySQL examples require a running MySQL server and a database with the specified table. Do not use real passwords or personal information in classroom demonstrations.</div>
+</div>
+</div>
+</section>
+
+<section class="intro">
+<h2>Conclusion</h2>
+<p>Backend Web Development combines internet technologies, PHP programming, HTML forms and database management. These concepts help developers build dynamic websites that can receive user input, process information on a server and store data in a database. Learning these topics provides a foundation for developing useful web applications.</p>
+<h3>Quick Revision</h3>
+<ul><li>HTML creates the structure of a web page.</li><li>JavaScript adds interaction in the browser.</li><li>PHP processes requests on the server.</li><li>GET and POST are HTTP methods used to send form data.</li><li>MySQL stores information in relational tables.</li><li>Prepared statements help protect database queries from SQL injection.</li></ul>
+<a class="toplink" href="#top">Back to Top ↑</a>
+</section>
+</main>
+<footer>Backend Web Development · Practical Learning Website</footer>
+<script>
+function toggleUnit(button){
+  const unit = button.closest('.unit');
+  unit.classList.toggle('open');
+}
+</script>
+</body>
+</html>
